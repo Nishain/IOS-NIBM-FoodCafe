@@ -18,21 +18,22 @@ class RoundBtn: UIButton {
         // Drawing code
     }
     */
-    @IBInspectable var borderRadius: CGFloat = 0.0{
+    @IBInspectable var borderRadius: Bool = false{
         didSet{
-            self.layer.cornerRadius = frame.height / 2
+            self.layer.cornerRadius = borderRadius ? frame.height / 2 : 0
         }
         
     }
     @IBInspectable var padding:CGFloat = 0.0{
         didSet{
-            contentEdgeInsets = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
+            	
+            titleEdgeInsets = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
         }
     }
-    override func contentRect(forBounds bounds: CGRect) -> CGRect {
+    /*override func contentRect(forBounds bounds: CGRect) -> CGRect {
        // self.layer.cornerRadius = layer.frame.height / 2
         let padding = UIEdgeInsets(top: 5, left: 20, bottom: 5, right: 20)
                return bounds.inset(by: padding)
-    }
+    }*/
 
 }
