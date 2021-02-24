@@ -10,7 +10,6 @@ import UIKit
 
 class FoodCategoryList: UICollectionView,UICollectionViewDelegate,UICollectionViewDataSource {
     var selectedIndex = -1
-    var unselectedIndex = -1
     let data:[String] = ["juices","deserts","breakfast","juices","deserts","breakfast","juices","deserts","breakfast"]
     required init?(coder: NSCoder) {
         super.init(coder:coder)
@@ -24,20 +23,16 @@ class FoodCategoryList: UICollectionView,UICollectionViewDelegate,UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "foodCatergoryCell", for: indexPath) as! FoodCategoryCell
         cell.bodyBtn.setTitle(data[indexPath.row], for:.normal)
+        cell.tag = indexPath.row
         if(selectedIndex == indexPath.row){
             cell.bodyBtn.backgroundColor = .link
             cell.bodyBtn.setTitleColor(.white, for: .normal)
-        }else{
+        }else {
             cell.bodyBtn.backgroundColor = nil
             cell.bodyBtn.setTitleColor(.black, for: .normal)
         }
         cell.userPressBtn = {button in
-            self.unselectedIndex = self.selectedIndex
-            self.selectedIndex = indexPath.row
-            var indexesToUpdate:[IndexPath] = [IndexPath(item: self.selectedIndex, section: 0)]
-            if(self.unselectedIndex != -1){
-                indexesToUpdate += [IndexPath(item: self.unselectedIndex, section: 0)]
-            }
+            self.selectedIndex = cell.tag
             self.reloadData()
             //self.reloadItems(at: indexesToUpdate)
         }

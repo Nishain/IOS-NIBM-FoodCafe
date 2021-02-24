@@ -10,13 +10,15 @@ import UIKit
 
 class FoodScreen: UIViewController {
 
-    @IBOutlet weak var orderQty: UITableView!
+    @IBOutlet weak var orderQty: PendingOrderList!
     @IBOutlet weak var foodCatergories: UICollectionView!
     @IBOutlet weak var foodList: UITableView!
+    @IBOutlet weak var cartItemCounter: UILabel!
     
     override func viewDidLoad() {
+        orderQty.totalCounter = cartItemCounter
         super.viewDidLoad()
-        
+       
         
         // Do any additional setup after loading the view.
     }

@@ -14,7 +14,8 @@ class PendingOrderList:UITableView {
         PendingOrder(foodName:"burger",quantity:4,originalPrice :250),
         PendingOrder(foodName:"pizza",quantity:2,originalPrice :456),
         PendingOrder(foodName:"burger",quantity:4,originalPrice :250)
-    ]
+        ]
+    var totalCounter:UILabel?
     required init?(coder: NSCoder) {
         super.init(coder:coder)
         delegate = self
@@ -26,10 +27,17 @@ class PendingOrderList:UITableView {
 }
 
 extension PendingOrderList : UITableViewDataSource,UITableViewDelegate{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
-    
+    func updateTotalCount()  {
+        var total = 0
+        for value in data{
+            total += value.quantity
+        }
+        totalCounter?.text = "\(total) items"
+    }
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "pendingOrder", for: indexPath) as! PendingOrderCell
         cell.information = data[indexPath.row]
@@ -43,12 +51,14 @@ extension PendingOrderList : UITableViewDataSource,UITableViewDelegate{
                 self.reloadData()
                 return
             }
-            
+            self.data[indexPath.row].quantity = currentValue + change
+            cell.information?.quantity = self.data[indexPath.row].quantity
             cell.qty.text = String(currentValue + change)
             cell.itemPrice.text = String(cell.information!.originalPrice * cell.information!.quantity)
+            self.updateTotalCount()
         }
                  // Configure the cell...
-
+        updateTotalCount()
         return cell
     }
     func numberOfSections(in tableView: UITableView) -> Int {
