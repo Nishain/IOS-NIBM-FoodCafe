@@ -27,7 +27,7 @@ class RoundBtn: UIButton {
     @IBInspectable var padding:CGFloat = 0.0{
         didSet{
             	
-            titleEdgeInsets = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
+            titleEdgeInsets = UIEdgeInsets(top: -padding, left: -padding, bottom: -padding, right: -padding)
         }
     }
     /*override func contentRect(forBounds bounds: CGRect) -> CGRect {

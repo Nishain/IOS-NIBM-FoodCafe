@@ -13,6 +13,7 @@
 		94AE925725E541C200CFC2AD /* PendingOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AE925625E541C200CFC2AD /* PendingOrderCell.swift */; };
 		94AE925A25E5458E00CFC2AD /* PendingOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AE925925E5458E00CFC2AD /* PendingOrder.swift */; };
 		94AE925C25E61F4100CFC2AD /* FoodCategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AE925B25E61F4100CFC2AD /* FoodCategoryList.swift */; };
+		94AE925E25E620D700CFC2AD /* FoodCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AE925D25E620D700CFC2AD /* FoodCategoryCell.swift */; };
 		94DB7AD625E3712700C41FDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DB7AD525E3712700C41FDB /* AppDelegate.swift */; };
 		94DB7AD825E3712700C41FDB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DB7AD725E3712700C41FDB /* SceneDelegate.swift */; };
 		94DB7ADA25E3712700C41FDB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DB7AD925E3712700C41FDB /* ViewController.swift */; };
@@ -30,6 +31,7 @@
 		94AE925625E541C200CFC2AD /* PendingOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingOrderCell.swift; sourceTree = "<group>"; };
 		94AE925925E5458E00CFC2AD /* PendingOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingOrder.swift; sourceTree = "<group>"; };
 		94AE925B25E61F4100CFC2AD /* FoodCategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategoryList.swift; sourceTree = "<group>"; };
+		94AE925D25E620D700CFC2AD /* FoodCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategoryCell.swift; sourceTree = "<group>"; };
 		94DB7AD225E3712700C41FDB /* FoodCafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodCafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94DB7AD525E3712700C41FDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94DB7AD725E3712700C41FDB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 			children = (
 				9474D05425E4FB9800D62B26 /* PendingOrderList.swift */,
 				94AE925B25E61F4100CFC2AD /* FoodCategoryList.swift */,
+				9474D04E25E4F7FC00D62B26 /* Screens */,
 			);
 			path = TableViews;
 			sourceTree = "<group>";
@@ -74,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				94AE925625E541C200CFC2AD /* PendingOrderCell.swift */,
+				94AE925D25E620D700CFC2AD /* FoodCategoryCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -108,7 +112,6 @@
 				94AE925825E5457600CFC2AD /* models */,
 				94AE925525E5417D00CFC2AD /* Cells */,
 				9474D05325E4FAAF00D62B26 /* TableViews */,
-				9474D04E25E4F7FC00D62B26 /* Screens */,
 				94F54BAB25E3856600C6BDDC /* UI */,
 				94DB7AD525E3712700C41FDB /* AppDelegate.swift */,
 				94DB7AD725E3712700C41FDB /* SceneDelegate.swift */,
@@ -205,6 +208,7 @@
 				94F54BAD25E385AE00C6BDDC /* PaddingTextUI.swift in Sources */,
 				94F54BAF25E3871D00C6BDDC /* RoundBtn.swift in Sources */,
 				94AE925A25E5458E00CFC2AD /* PendingOrder.swift in Sources */,
+				94AE925E25E620D700CFC2AD /* FoodCategoryCell.swift in Sources */,
 				94DB7ADA25E3712700C41FDB /* ViewController.swift in Sources */,
 				94DB7AD625E3712700C41FDB /* AppDelegate.swift in Sources */,
 				9474D04D25E4B6D200D62B26 /* AvatarImage.swift in Sources */,

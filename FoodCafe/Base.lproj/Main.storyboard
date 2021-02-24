@@ -116,7 +116,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Oix-tj-bIn" userLabel="orderQty" customClass="PendingOrderList" customModule="FoodCafe" customModuleProvider="target">
-                                <rect key="frame" x="10" y="138" width="394" height="120"/>
+                                <rect key="frame" x="10" y="88" width="394" height="120"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="iRt-G9-IY2"/>
@@ -189,52 +189,58 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vR9-Y0-a8S" userLabel="foodCatergories">
-                                <rect key="frame" x="10" y="258" width="394" height="47"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vR9-Y0-a8S" userLabel="foodCatergories" customClass="FoodCategoryList" customModule="FoodCafe" customModuleProvider="target">
+                                <rect key="frame" x="10" y="208" width="394" height="47"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="5Ie-D1-ai7"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="m1b-Ua-V1w">
-                                    <size key="itemSize" width="122" height="45"/>
+                                    <size key="itemSize" width="200" height="45"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="l9g-s0-pHh">
-                                        <rect key="frame" x="0.0" y="1" width="122" height="45"/>
+                                    <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="foodCatergoryCell" id="l9g-s0-pHh" customClass="FoodCategoryCell" customModule="FoodCafe" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="4.5" width="66" height="38"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="myr-hs-9Py">
-                                            <rect key="frame" x="0.0" y="0.0" width="122" height="45"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="66" height="38"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2SE-lV-FCp" userLabel="category" customClass="RoundBtn" customModule="FoodCafe" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="7.5" width="122" height="30"/>
-                                                    <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="66" height="38"/>
+                                                    <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                                     <state key="normal" title="Food 1">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="borderRadius" value="NO"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="borderRadius" value="YES"/>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="padding">
                                                             <real key="value" value="0.0"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="onBtnPress:" destination="l9g-s0-pHh" eventType="touchUpInside" id="9Rs-9t-oFl"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="2SE-lV-FCp" firstAttribute="centerY" secondItem="myr-hs-9Py" secondAttribute="centerY" id="LGW-IW-p50"/>
-                                                <constraint firstAttribute="width" secondItem="2SE-lV-FCp" secondAttribute="width" id="OzA-SG-QCM"/>
-                                                <constraint firstItem="2SE-lV-FCp" firstAttribute="centerX" secondItem="myr-hs-9Py" secondAttribute="centerX" id="gwP-js-xzY"/>
+                                                <constraint firstItem="2SE-lV-FCp" firstAttribute="leading" secondItem="myr-hs-9Py" secondAttribute="leading" id="FPO-R1-aij"/>
+                                                <constraint firstItem="2SE-lV-FCp" firstAttribute="top" secondItem="myr-hs-9Py" secondAttribute="top" id="aJI-iF-taq"/>
+                                                <constraint firstAttribute="bottom" secondItem="2SE-lV-FCp" secondAttribute="bottom" id="mcB-y5-JHo"/>
+                                                <constraint firstAttribute="trailing" secondItem="2SE-lV-FCp" secondAttribute="trailing" id="qI3-qt-dgi"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="122" height="45"/>
+                                        <connections>
+                                            <outlet property="bodyBtn" destination="2SE-lV-FCp" id="fNb-oT-xRo"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hyC-OJ-veO" userLabel="foodList">
-                                <rect key="frame" x="10" y="305" width="394" height="508"/>
+                                <rect key="frame" x="10" y="255" width="394" height="558"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="pjy-IV-qdr">
@@ -314,7 +320,7 @@
                             <constraint firstItem="hyC-OJ-veO" firstAttribute="trailing" secondItem="vR9-Y0-a8S" secondAttribute="trailing" id="MEF-89-gjp"/>
                             <constraint firstItem="vR9-Y0-a8S" firstAttribute="leading" secondItem="Oix-tj-bIn" secondAttribute="leading" id="Zzy-gC-9qV"/>
                             <constraint firstItem="HyA-Lr-Kpi" firstAttribute="bottom" secondItem="hyC-OJ-veO" secondAttribute="bottom" id="dtl-My-1fX"/>
-                            <constraint firstItem="Oix-tj-bIn" firstAttribute="top" secondItem="HyA-Lr-Kpi" secondAttribute="top" constant="50" id="nBu-C5-nzn"/>
+                            <constraint firstItem="Oix-tj-bIn" firstAttribute="top" secondItem="HyA-Lr-Kpi" secondAttribute="top" id="nBu-C5-nzn"/>
                             <constraint firstItem="hyC-OJ-veO" firstAttribute="leading" secondItem="vR9-Y0-a8S" secondAttribute="leading" id="p9o-hi-ygz"/>
                             <constraint firstItem="HyA-Lr-Kpi" firstAttribute="trailing" secondItem="Oix-tj-bIn" secondAttribute="trailing" constant="10" id="q9m-H9-01t"/>
                             <constraint firstItem="hyC-OJ-veO" firstAttribute="top" secondItem="vR9-Y0-a8S" secondAttribute="bottom" id="wge-rc-a8Y"/>
