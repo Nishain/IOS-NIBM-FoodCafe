@@ -12,7 +12,7 @@ class FoodScreen: UIViewController {
 
     @IBOutlet weak var orderQty: PendingOrderList!
     @IBOutlet weak var foodCatergories: UICollectionView!
-    @IBOutlet weak var foodList: UITableView!
+    @IBOutlet weak var foodList: FoodList!
     @IBOutlet weak var cartItemCounter: UILabel!
     @IBOutlet weak var heightContraint: NSLayoutConstraint!
     @IBOutlet weak var orderBtn: RoundBtn!
@@ -24,7 +24,11 @@ class FoodScreen: UIViewController {
         }
         orderQty.heightConstraint = heightContraint
         super.viewDidLoad()
-       
+        foodList.onItemSelected = {selectedDetail in
+            let detailScreen = self.storyboard?.instantiateViewController(identifier: "foodDetailScreen") as! FullFoodDetailScreen
+            detailScreen.foodDetail = selectedDetail
+            self.navigationController?.pushViewController(detailScreen, animated: false)
+        }
         
         // Do any additional setup after loading the view.
     }
