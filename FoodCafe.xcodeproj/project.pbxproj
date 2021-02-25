@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9413467125E7EC15001750D3 /* AuthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413467025E7EC15001750D3 /* AuthScreen.swift */; };
 		9474D04D25E4B6D200D62B26 /* AvatarImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9474D04C25E4B6D200D62B26 /* AvatarImage.swift */; };
 		9474D05225E4F95000D62B26 /* FoodScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9474D05125E4F95000D62B26 /* FoodScreen.swift */; };
 		9474D05525E4FB9800D62B26 /* PendingOrderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9474D05425E4FB9800D62B26 /* PendingOrderList.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9413467025E7EC15001750D3 /* AuthScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreen.swift; sourceTree = "<group>"; };
 		9474D04C25E4B6D200D62B26 /* AvatarImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImage.swift; sourceTree = "<group>"; };
 		9474D05125E4F95000D62B26 /* FoodScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodScreen.swift; sourceTree = "<group>"; };
 		9474D05425E4FB9800D62B26 /* PendingOrderList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingOrderList.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			children = (
 				9474D05125E4F95000D62B26 /* FoodScreen.swift */,
 				94D7E22725E777E50043B9A4 /* FullFoodDetailScreen.swift */,
+				9413467025E7EC15001750D3 /* AuthScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				94AE925A25E5458E00CFC2AD /* PendingOrder.swift in Sources */,
 				94AE925E25E620D700CFC2AD /* FoodCategoryCell.swift in Sources */,
 				94DB7ADA25E3712700C41FDB /* ViewController.swift in Sources */,
+				9413467125E7EC15001750D3 /* AuthScreen.swift in Sources */,
 				94DB7AD625E3712700C41FDB /* AppDelegate.swift in Sources */,
 				94D7E22625E76E790043B9A4 /* FoodDetail.swift in Sources */,
 				94D7E22225E76D270043B9A4 /* FoodSmallDetailCell.swift in Sources */,
