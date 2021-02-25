@@ -14,9 +14,15 @@ class FoodScreen: UIViewController {
     @IBOutlet weak var foodCatergories: UICollectionView!
     @IBOutlet weak var foodList: UITableView!
     @IBOutlet weak var cartItemCounter: UILabel!
+    @IBOutlet weak var heightContraint: NSLayoutConstraint!
+    @IBOutlet weak var orderBtn: RoundBtn!
     
     override func viewDidLoad() {
-        orderQty.totalCounter = cartItemCounter
+        orderQty.onSumChanged = {quantity,cost in
+            self.cartItemCounter.text = "\(quantity) items"
+            self.orderBtn.setTitle("Rs. \(cost)", for: .normal)
+        }
+        orderQty.heightConstraint = heightContraint
         super.viewDidLoad()
        
         

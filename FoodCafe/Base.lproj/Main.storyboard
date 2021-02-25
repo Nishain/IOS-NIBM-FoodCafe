@@ -724,6 +724,8 @@ Item 2</string>
                         <outlet property="cartItemCounter" destination="6OC-nN-Gj5" id="inz-SS-AZK"/>
                         <outlet property="foodCatergories" destination="93e-iH-Hie" id="zJt-ss-59Z"/>
                         <outlet property="foodList" destination="L5h-xU-nS5" id="aKs-HS-1vj"/>
+                        <outlet property="heightContraint" destination="HfL-Le-3HV" id="4UD-oD-IdL"/>
+                        <outlet property="orderBtn" destination="Msg-tL-Fht" id="irF-Zk-I9d"/>
                         <outlet property="orderQty" destination="1I1-MG-Roq" id="qCU-tW-5J8"/>
                     </connections>
                 </viewController>
@@ -736,6 +738,6 @@ Item 2</string>
         <image name="avatar" width="166.33332824707031" height="166"/>
         <image name="logo" width="32" height="32"/>
         <image name="minus.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="plus.circle.fill" catalog="system" width="32" height="32"/>
     </resources>
 </document>

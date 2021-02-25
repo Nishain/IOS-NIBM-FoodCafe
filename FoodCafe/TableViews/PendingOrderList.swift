@@ -15,7 +15,8 @@ class PendingOrderList:UITableView {
         PendingOrder(foodName:"pizza",quantity:2,originalPrice :456),
         PendingOrder(foodName:"burger",quantity:4,originalPrice :250)
         ]
-    var totalCounter:UILabel?
+    var onSumChanged:((_ quantity:Int,_ price:Int)->Void)?
+    var heightConstraint:NSLayoutConstraint?
     required init?(coder: NSCoder) {
         super.init(coder:coder)
         delegate = self
@@ -31,12 +32,14 @@ extension PendingOrderList : UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
-    func updateTotalCount()  {
-        var total = 0
+    func updateSumValues(){
+        var totalQuantity = 0
+        var totalCost = 0
         for value in data{
-            total += value.quantity
+            totalQuantity += value.quantity
+            totalCost += value.originalPrice * value.quantity
         }
-        totalCounter?.text = "\(total) items"
+        onSumChanged?(totalQuantity,totalCost)
     }
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "pendingOrder", for: indexPath) as! PendingOrderCell
@@ -55,10 +58,12 @@ extension PendingOrderList : UITableViewDataSource,UITableViewDelegate{
             cell.information?.quantity = self.data[indexPath.row].quantity
             cell.qty.text = String(currentValue + change)
             cell.itemPrice.text = String(cell.information!.originalPrice * cell.information!.quantity)
-            self.updateTotalCount()
+            self.updateSumValues()
         }
+        heightConstraint?.constant = contentSize.height
                  // Configure the cell...
-        updateTotalCount()
+        updateSumValues()
+        
         return cell
     }
     func numberOfSections(in tableView: UITableView) -> Int {

@@ -23,16 +23,17 @@ class FoodCategoryList: UICollectionView,UICollectionViewDelegate,UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "foodCatergoryCell", for: indexPath) as! FoodCategoryCell
         cell.bodyBtn.setTitle(data[indexPath.row], for:.normal)
-        cell.tag = indexPath.row
         if(selectedIndex == indexPath.row){
             cell.bodyBtn.backgroundColor = .link
             cell.bodyBtn.setTitleColor(.white, for: .normal)
-        }else {
+            cell.tag = 2
+        }else if(cell.tag == 2){
             cell.bodyBtn.backgroundColor = nil
             cell.bodyBtn.setTitleColor(.black, for: .normal)
+            cell.tag = 0
         }
         cell.userPressBtn = {button in
-            self.selectedIndex = cell.tag
+            self.selectedIndex = indexPath.row
             self.reloadData()
             //self.reloadItems(at: indexesToUpdate)
         }
