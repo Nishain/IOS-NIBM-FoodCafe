@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		940DE82625EB681A00CA3F3C /* OrderListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940DE82525EB681A00CA3F3C /* OrderListController.swift */; };
+		940DE82825EB69CF00CA3F3C /* cardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940DE82725EB69CF00CA3F3C /* cardView.swift */; };
 		9413467125E7EC15001750D3 /* AuthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413467025E7EC15001750D3 /* AuthScreen.swift */; };
 		9474D04D25E4B6D200D62B26 /* AvatarImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9474D04C25E4B6D200D62B26 /* AvatarImage.swift */; };
 		9474D05225E4F95000D62B26 /* FoodScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9474D05125E4F95000D62B26 /* FoodScreen.swift */; };
@@ -15,6 +17,12 @@
 		94AE925A25E5458E00CFC2AD /* PendingOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AE925925E5458E00CFC2AD /* PendingOrder.swift */; };
 		94AE925C25E61F4100CFC2AD /* FoodCategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AE925B25E61F4100CFC2AD /* FoodCategoryList.swift */; };
 		94AE925E25E620D700CFC2AD /* FoodCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AE925D25E620D700CFC2AD /* FoodCategoryCell.swift */; };
+		94D496EA25EB52F60033FA3E /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D496E925EB52F60033FA3E /* OrderCell.swift */; };
+		94D496EE25EB54C30033FA3E /* OrderStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D496ED25EB54C30033FA3E /* OrderStatus.swift */; };
+		94D496F025EB57960033FA3E /* AccountScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D496EF25EB57960033FA3E /* AccountScreen.swift */; };
+		94D496F225EB59200033FA3E /* Reciept.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D496F125EB59200033FA3E /* Reciept.swift */; };
+		94D496F425EB59C90033FA3E /* DailyRecieptCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D496F325EB59C90033FA3E /* DailyRecieptCell.swift */; };
+		94D496F625EB5A190033FA3E /* RecieptList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D496F525EB5A190033FA3E /* RecieptList.swift */; };
 		94D7E22025E76A2C0043B9A4 /* UIPaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D7E21F25E76A2C0043B9A4 /* UIPaddingLabel.swift */; };
 		94D7E22225E76D270043B9A4 /* FoodSmallDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D7E22125E76D270043B9A4 /* FoodSmallDetailCell.swift */; };
 		94D7E22425E76E2A0043B9A4 /* FoodList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D7E22325E76E2A0043B9A4 /* FoodList.swift */; };
@@ -31,6 +39,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		940DE82525EB681A00CA3F3C /* OrderListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListController.swift; sourceTree = "<group>"; };
+		940DE82725EB69CF00CA3F3C /* cardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardView.swift; sourceTree = "<group>"; };
 		9413467025E7EC15001750D3 /* AuthScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreen.swift; sourceTree = "<group>"; };
 		9474D04C25E4B6D200D62B26 /* AvatarImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImage.swift; sourceTree = "<group>"; };
 		9474D05125E4F95000D62B26 /* FoodScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodScreen.swift; sourceTree = "<group>"; };
@@ -39,6 +49,12 @@
 		94AE925925E5458E00CFC2AD /* PendingOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingOrder.swift; sourceTree = "<group>"; };
 		94AE925B25E61F4100CFC2AD /* FoodCategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategoryList.swift; sourceTree = "<group>"; };
 		94AE925D25E620D700CFC2AD /* FoodCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategoryCell.swift; sourceTree = "<group>"; };
+		94D496E925EB52F60033FA3E /* OrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
+		94D496ED25EB54C30033FA3E /* OrderStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStatus.swift; sourceTree = "<group>"; };
+		94D496EF25EB57960033FA3E /* AccountScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountScreen.swift; sourceTree = "<group>"; };
+		94D496F125EB59200033FA3E /* Reciept.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reciept.swift; sourceTree = "<group>"; };
+		94D496F325EB59C90033FA3E /* DailyRecieptCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyRecieptCell.swift; sourceTree = "<group>"; };
+		94D496F525EB5A190033FA3E /* RecieptList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecieptList.swift; sourceTree = "<group>"; };
 		94D7E21F25E76A2C0043B9A4 /* UIPaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPaddingLabel.swift; sourceTree = "<group>"; };
 		94D7E22125E76D270043B9A4 /* FoodSmallDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSmallDetailCell.swift; sourceTree = "<group>"; };
 		94D7E22325E76E2A0043B9A4 /* FoodList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodList.swift; sourceTree = "<group>"; };
@@ -73,6 +89,7 @@
 				9474D05125E4F95000D62B26 /* FoodScreen.swift */,
 				94D7E22725E777E50043B9A4 /* FullFoodDetailScreen.swift */,
 				9413467025E7EC15001750D3 /* AuthScreen.swift */,
+				94D496EF25EB57960033FA3E /* AccountScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -83,7 +100,9 @@
 				9474D05425E4FB9800D62B26 /* PendingOrderList.swift */,
 				94AE925B25E61F4100CFC2AD /* FoodCategoryList.swift */,
 				94D7E22325E76E2A0043B9A4 /* FoodList.swift */,
+				94D496F525EB5A190033FA3E /* RecieptList.swift */,
 				9474D04E25E4F7FC00D62B26 /* Screens */,
+				940DE82525EB681A00CA3F3C /* OrderListController.swift */,
 			);
 			path = TableViews;
 			sourceTree = "<group>";
@@ -94,6 +113,8 @@
 				94AE925625E541C200CFC2AD /* PendingOrderCell.swift */,
 				94AE925D25E620D700CFC2AD /* FoodCategoryCell.swift */,
 				94D7E22125E76D270043B9A4 /* FoodSmallDetailCell.swift */,
+				94D496E925EB52F60033FA3E /* OrderCell.swift */,
+				94D496F325EB59C90033FA3E /* DailyRecieptCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -103,6 +124,8 @@
 			children = (
 				94AE925925E5458E00CFC2AD /* PendingOrder.swift */,
 				94D7E22525E76E790043B9A4 /* FoodDetail.swift */,
+				94D496ED25EB54C30033FA3E /* OrderStatus.swift */,
+				94D496F125EB59200033FA3E /* Reciept.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -148,6 +171,7 @@
 				94F54BAE25E3871D00C6BDDC /* RoundBtn.swift */,
 				9474D04C25E4B6D200D62B26 /* AvatarImage.swift */,
 				94D7E21F25E76A2C0043B9A4 /* UIPaddingLabel.swift */,
+				940DE82725EB69CF00CA3F3C /* cardView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -224,19 +248,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				94F54BAD25E385AE00C6BDDC /* PaddingTextUI.swift in Sources */,
+				94D496F625EB5A190033FA3E /* RecieptList.swift in Sources */,
 				94F54BAF25E3871D00C6BDDC /* RoundBtn.swift in Sources */,
+				94D496EA25EB52F60033FA3E /* OrderCell.swift in Sources */,
 				94AE925A25E5458E00CFC2AD /* PendingOrder.swift in Sources */,
+				940DE82625EB681A00CA3F3C /* OrderListController.swift in Sources */,
 				94AE925E25E620D700CFC2AD /* FoodCategoryCell.swift in Sources */,
 				94DB7ADA25E3712700C41FDB /* ViewController.swift in Sources */,
+				940DE82825EB69CF00CA3F3C /* cardView.swift in Sources */,
 				9413467125E7EC15001750D3 /* AuthScreen.swift in Sources */,
+				94D496F425EB59C90033FA3E /* DailyRecieptCell.swift in Sources */,
 				94DB7AD625E3712700C41FDB /* AppDelegate.swift in Sources */,
 				94D7E22625E76E790043B9A4 /* FoodDetail.swift in Sources */,
 				94D7E22225E76D270043B9A4 /* FoodSmallDetailCell.swift in Sources */,
 				9474D04D25E4B6D200D62B26 /* AvatarImage.swift in Sources */,
+				94D496F225EB59200033FA3E /* Reciept.swift in Sources */,
+				94D496EE25EB54C30033FA3E /* OrderStatus.swift in Sources */,
 				94AE925C25E61F4100CFC2AD /* FoodCategoryList.swift in Sources */,
 				94D7E22425E76E2A0043B9A4 /* FoodList.swift in Sources */,
 				9474D05225E4F95000D62B26 /* FoodScreen.swift in Sources */,
 				94D7E22825E777E50043B9A4 /* FullFoodDetailScreen.swift in Sources */,
+				94D496F025EB57960033FA3E /* AccountScreen.swift in Sources */,
 				9474D05525E4FB9800D62B26 /* PendingOrderList.swift in Sources */,
 				94D7E22025E76A2C0043B9A4 /* UIPaddingLabel.swift in Sources */,
 				94AE925725E541C200CFC2AD /* PendingOrderCell.swift in Sources */,

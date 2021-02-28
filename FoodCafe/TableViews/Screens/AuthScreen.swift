@@ -43,7 +43,7 @@ class AuthScreen: UIViewController {
         secondaryBtn.setTitle(currentMode == .login ? "Register?" : "Login?", for: .normal)
         
     }
-    login
+    
 
     /*
     // MARK: - Navigation
