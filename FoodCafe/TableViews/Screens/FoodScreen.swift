@@ -33,8 +33,8 @@ class FoodScreen: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func onSignOut(_ sender: Any) {
-        
         try? Auth.auth().signOut()
+       // let authenticateScreen = storyboard!.instantiateViewController(identifier: "authScreen")
         print("user signed out")
     }
     

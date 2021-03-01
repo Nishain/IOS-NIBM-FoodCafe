@@ -94,9 +94,10 @@ class AuthScreen: UIViewController {
         if(password.text! != confirmPassword.text!){
             return alertPop.infoPop(title: "Field mismatch", body: "confirmation password doesn't match")
         }
-        if (NSPredicate(format: "SELF MATCHES %@", "^\\d{10}$").evaluate(with:phonenumber.text!)){
+        if Int(phonenumber.text!) == nil || phonenumber.text!.count != 10{
             return alertPop.infoPop(title: "Invalid contact number", body: "the contact number provided is wrong format")
         }
+        
         auth.createUser(withEmail: email.text!, password: password.text!, completion: ({result,err in
             if(err == nil){
                 //homeScreen

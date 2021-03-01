@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 struct  FoodDetail {
-    var image: UIImage
+    var image: UIImage?
     var title:String
     var foodDescription:String
     var promotion:Int = 0
