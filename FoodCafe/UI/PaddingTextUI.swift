@@ -13,9 +13,16 @@ class PaddingTextUI: UITextField {
 
     @IBInspectable var padding:CGFloat = 0.0
     override func textRect(forBounds bounds: CGRect) -> CGRect {
-        //let padding = UIEdgeInsets(top: self.padding, left: padding, bottom: padding, right: padding)
-        return bounds.insetBy(dx: padding, dy: padding)
+        return CGRect(
+            x: bounds.origin.x + padding,
+            y: bounds.origin.y + padding,
+            width: bounds.size.width - padding * 2,
+            height: bounds.size.height - padding * 2
+        )
         
+    }
+    override func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return self.textRect(forBounds: bounds)
     }
     /*
     // Only override draw() if you perform custom drawing.

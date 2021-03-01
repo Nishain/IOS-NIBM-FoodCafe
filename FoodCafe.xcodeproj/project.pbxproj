@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,8 @@
 		940DE82625EB681A00CA3F3C /* OrderListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940DE82525EB681A00CA3F3C /* OrderListController.swift */; };
 		940DE82825EB69CF00CA3F3C /* cardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940DE82725EB69CF00CA3F3C /* cardView.swift */; };
 		940DE82C25EB7C6100CA3F3C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 940DE82B25EB7C6100CA3F3C /* GoogleService-Info.plist */; };
+		940DE82E25EB801000CA3F3C /* PermissionRequestScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940DE82D25EB801000CA3F3C /* PermissionRequestScreen.swift */; };
+		940DE83125EB80EA00CA3F3C /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940DE83025EB80EA00CA3F3C /* LocationService.swift */; };
 		9413467125E7EC15001750D3 /* AuthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413467025E7EC15001750D3 /* AuthScreen.swift */; };
 		9474D04D25E4B6D200D62B26 /* AvatarImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9474D04C25E4B6D200D62B26 /* AvatarImage.swift */; };
 		9474D05225E4F95000D62B26 /* FoodScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9474D05125E4F95000D62B26 /* FoodScreen.swift */; };
@@ -36,6 +38,7 @@
 		94DB7ADD25E3712700C41FDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94DB7ADB25E3712700C41FDB /* Main.storyboard */; };
 		94DB7ADF25E3714300C41FDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94DB7ADE25E3714300C41FDB /* Assets.xcassets */; };
 		94DB7AE225E3714300C41FDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94DB7AE025E3714300C41FDB /* LaunchScreen.storyboard */; };
+		94EBA74625EC96A200C5CDE6 /* AlertPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EBA74525EC96A200C5CDE6 /* AlertPopup.swift */; };
 		94F54BAD25E385AE00C6BDDC /* PaddingTextUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F54BAC25E385AE00C6BDDC /* PaddingTextUI.swift */; };
 		94F54BAF25E3871D00C6BDDC /* RoundBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F54BAE25E3871D00C6BDDC /* RoundBtn.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +47,8 @@
 		940DE82525EB681A00CA3F3C /* OrderListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListController.swift; sourceTree = "<group>"; };
 		940DE82725EB69CF00CA3F3C /* cardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardView.swift; sourceTree = "<group>"; };
 		940DE82B25EB7C6100CA3F3C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		940DE82D25EB801000CA3F3C /* PermissionRequestScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionRequestScreen.swift; sourceTree = "<group>"; };
+		940DE83025EB80EA00CA3F3C /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		9413467025E7EC15001750D3 /* AuthScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreen.swift; sourceTree = "<group>"; };
 		9474D04C25E4B6D200D62B26 /* AvatarImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImage.swift; sourceTree = "<group>"; };
 		9474D05125E4F95000D62B26 /* FoodScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodScreen.swift; sourceTree = "<group>"; };
@@ -71,6 +76,7 @@
 		94DB7ADE25E3714300C41FDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94DB7AE125E3714300C41FDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94DB7AE325E3714300C41FDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94EBA74525EC96A200C5CDE6 /* AlertPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPopup.swift; sourceTree = "<group>"; };
 		94F54BAC25E385AE00C6BDDC /* PaddingTextUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingTextUI.swift; sourceTree = "<group>"; };
 		94F54BAE25E3871D00C6BDDC /* RoundBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundBtn.swift; sourceTree = "<group>"; };
 		AF74D1567EDF5FC43F422806 /* Pods_FoodCafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodCafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,13 +104,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		940DE82F25EB80D500CA3F3C /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				940DE83025EB80EA00CA3F3C /* LocationService.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
 		9474D04E25E4F7FC00D62B26 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				94EBA74525EC96A200C5CDE6 /* AlertPopup.swift */,
 				9474D05125E4F95000D62B26 /* FoodScreen.swift */,
 				94D7E22725E777E50043B9A4 /* FullFoodDetailScreen.swift */,
 				9413467025E7EC15001750D3 /* AuthScreen.swift */,
 				94D496EF25EB57960033FA3E /* AccountScreen.swift */,
+				940DE82D25EB801000CA3F3C /* PermissionRequestScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -166,6 +182,7 @@
 		94DB7AD425E3712700C41FDB /* FoodCafe */ = {
 			isa = PBXGroup;
 			children = (
+				940DE82F25EB80D500CA3F3C /* Location */,
 				940DE82B25EB7C6100CA3F3C /* GoogleService-Info.plist */,
 				94AE925825E5457600CFC2AD /* models */,
 				94AE925525E5417D00CFC2AD /* Cells */,
@@ -200,7 +217,6 @@
 				B00CB4C55933DFA12CD786A3 /* Pods-FoodCafe.debug.xcconfig */,
 				B65A1D4B97750D6FF0E1FF03 /* Pods-FoodCafe.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -321,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94F54BAD25E385AE00C6BDDC /* PaddingTextUI.swift in Sources */,
+				94EBA74625EC96A200C5CDE6 /* AlertPopup.swift in Sources */,
 				94D496F625EB5A190033FA3E /* RecieptList.swift in Sources */,
 				94F54BAF25E3871D00C6BDDC /* RoundBtn.swift in Sources */,
 				94D496EA25EB52F60033FA3E /* OrderCell.swift in Sources */,
@@ -334,6 +351,7 @@
 				94DB7AD625E3712700C41FDB /* AppDelegate.swift in Sources */,
 				94D7E22625E76E790043B9A4 /* FoodDetail.swift in Sources */,
 				94D7E22225E76D270043B9A4 /* FoodSmallDetailCell.swift in Sources */,
+				940DE83125EB80EA00CA3F3C /* LocationService.swift in Sources */,
 				9474D04D25E4B6D200D62B26 /* AvatarImage.swift in Sources */,
 				94D496F225EB59200033FA3E /* Reciept.swift in Sources */,
 				94D496EE25EB54C30033FA3E /* OrderStatus.swift in Sources */,
@@ -341,6 +359,7 @@
 				94D7E22425E76E2A0043B9A4 /* FoodList.swift in Sources */,
 				9474D05225E4F95000D62B26 /* FoodScreen.swift in Sources */,
 				94D7E22825E777E50043B9A4 /* FullFoodDetailScreen.swift in Sources */,
+				940DE82E25EB801000CA3F3C /* PermissionRequestScreen.swift in Sources */,
 				94D496F025EB57960033FA3E /* AccountScreen.swift in Sources */,
 				9474D05525E4FB9800D62B26 /* PendingOrderList.swift in Sources */,
 				94D7E22025E76A2C0043B9A4 /* UIPaddingLabel.swift in Sources */,

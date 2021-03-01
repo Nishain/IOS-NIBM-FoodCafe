@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Firebase
 class FoodScreen: UIViewController {
 
     @IBOutlet weak var orderQty: PendingOrderList!
@@ -31,6 +31,11 @@ class FoodScreen: UIViewController {
         }
         
         // Do any additional setup after loading the view.
+    }
+    @IBAction func onSignOut(_ sender: Any) {
+        
+        try? Auth.auth().signOut()
+        print("user signed out")
     }
     
 
