@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "0C313DA5-300D-4AE4-A18D-641AC680D933"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ECF31000-87B2-4008-8426-C8AC99554382"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FoodCafe/TableViews/FoodCategoryList.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "ECF31000-87B2-4008-8426-C8AC99554382 - f2acc9759d0407d3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FoodCafe.FoodCategoryList.__deallocating_deinit"
+                  moduleName = "FoodCafe"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nishain/Desktop/FoodCafe/FoodCafe/TableViews/FoodCategoryList.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "ECF31000-87B2-4008-8426-C8AC99554382 - 36c5edd2335f61ca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FoodCafe.FoodCategoryList.__allocating_init(frame: __C.CGRect, collectionViewLayout: __C.UICollectionViewLayout) -&gt; FoodCafe.FoodCategoryList"
+                  moduleName = "FoodCafe"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nishain/Desktop/FoodCafe/FoodCafe/TableViews/FoodCategoryList.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "ECF31000-87B2-4008-8426-C8AC99554382 - c4f6f3ad465cc7fc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FoodCafe.FoodCategoryList.init(frame: __C.CGRect, collectionViewLayout: __C.UICollectionViewLayout) -&gt; FoodCafe.FoodCategoryList"
+                  moduleName = "FoodCafe"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nishain/Desktop/FoodCafe/FoodCafe/TableViews/FoodCategoryList.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "188">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

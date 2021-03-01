@@ -31,7 +31,10 @@ class FullFoodDetailScreen: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func onMakePhoneCall(_ sender: Any) {
+        UIApplication.shared.open(URL(string:"tel://\(foodDetail.phoneNumber)")!, options: [:], completionHandler: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

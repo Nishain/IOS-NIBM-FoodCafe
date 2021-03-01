@@ -15,4 +15,5 @@ struct  FoodDetail {
     var promotion:Int = 0
     var cost:Int
     var phoneNumber:Int
+    var type:String
 }

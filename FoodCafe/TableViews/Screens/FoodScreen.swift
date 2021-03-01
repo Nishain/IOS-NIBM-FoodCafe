@@ -11,7 +11,7 @@ import Firebase
 class FoodScreen: UIViewController {
 
     @IBOutlet weak var orderQty: PendingOrderList!
-    @IBOutlet weak var foodCatergories: UICollectionView!
+    @IBOutlet weak var foodCatergories: FoodCategoryList!
     @IBOutlet weak var foodList: FoodList!
     @IBOutlet weak var cartItemCounter: UILabel!
     @IBOutlet weak var heightContraint: NSLayoutConstraint!
@@ -19,20 +19,35 @@ class FoodScreen: UIViewController {
     
     let db = Firestore.firestore()
     let imageStore = Storage.storage()
-    func loadData(){
+    
+    func loadData(catergory:String?){
         var foodList:[FoodDetail] = []
-        db.collection("Foods").getDocuments(completion: {snapshot,err in
+        var catergories:[String] = ["All"]
+        var reference = db.collection("Foods").limit(to: 200)
+        if(catergory != nil){
+            reference = reference.whereField("type", isEqualTo:catergory!)
+        }
+        reference.getDocuments(completion: {snapshot,err in
             if(err != nil){
-                print(err)
+               print(err)
             }
             for (index,document) in (snapshot?.documents ?? []).enumerated(){
                 let food = document.data()
-                let foodDetail = FoodDetail(image: nil,
-                                            title: food["title"] as! String,
-                                            foodDescription: food["description"] as! String,
-                                            promotion: food["promotion"] as! Int,
-                                            cost: food["cost"] as! Int,
-                                            phoneNumber: food["phoneNumber"] as! Int)
+                var foodDetail = FoodDetail(image: nil,
+                    title: food["title"] as! String,
+                    foodDescription: food["description"] as! String,
+                    promotion:(food["promotion"] as? Int) ?? 0,
+                    cost: food["cost"] as! Int,
+                    phoneNumber: food["phoneNumber"] as! Int,
+                    type: food["type"] as! String
+                )
+                if(food.keys.contains("promotion")){
+                    foodDetail.promotion = food["promotion"] as! Int
+                }
+                if(catergory == nil){
+                    catergories.append(foodDetail.type)
+                }
+                
                 self.imageStore.reference(withPath: "foods/\(document.documentID).jpg").getData(maxSize: 1 * 1024 * 1024, completion: {data,imageErr in
                     print("foods/\(document.documentID).jpg")
                     if(imageErr != nil){
@@ -43,8 +58,11 @@ class FoodScreen: UIViewController {
                 })
                 foodList.append(foodDetail)
             }
+            if(catergory==nil){
+                self.foodCatergories.setData(catergories)
+            }
             self.foodList.updateData(foodList)
-        })
+            })
     }
     override func viewDidLoad() {
         orderQty.onSumChanged = {quantity,cost in
@@ -58,7 +76,10 @@ class FoodScreen: UIViewController {
             detailScreen.foodDetail = selectedDetail
             self.navigationController?.pushViewController(detailScreen, animated: false)
         }
-        loadData()
+        foodCatergories.onCatergorySelected = {index,catergory in
+            self.loadData(catergory: index == 0 ? nil : catergory)
+        }
+        loadData(catergory: nil)
         // Do any additional setup after loading the view.
     }
     @IBAction func onSignOut(_ sender: Any) {

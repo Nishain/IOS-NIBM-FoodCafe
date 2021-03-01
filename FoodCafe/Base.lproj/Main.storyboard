@@ -282,7 +282,11 @@
                         <viewLayoutGuide key="safeArea" id="6xM-Fj-dC3"/>
                     </view>
                     <navigationItem key="navigationItem" id="Qfv-ej-RUg">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="phone.fill" catalog="system" id="JJQ-gj-Ojk"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="phone.fill" catalog="system" id="JJQ-gj-Ojk">
+                            <connections>
+                                <action selector="onMakePhoneCall:" destination="nis-gx-vh6" id="k4k-ij-hpV"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="foodDescription" destination="jCP-c2-SDH" id="uky-Zh-4Je"/>
@@ -715,22 +719,21 @@ Item 2</string>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="foodCatergoryCell" id="jUb-vj-XHB" customClass="FoodCategoryCell" customModule="FoodCafe" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="8.6666666666666661" width="46" height="30"/>
+                                        <rect key="frame" x="0.0" y="4.666666666666667" width="66" height="38"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ibh-8K-1w7">
-                                            <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="66" height="38"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hqz-SB-5sj" userLabel="category" customClass="RoundBtn" customModule="FoodCafe" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
-                                                    <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="66" height="38"/>
                                                     <state key="normal" title="Food 1">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="borderRadius" value="YES"/>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="padding">
-                                                            <real key="value" value="0.0"/>
+                                                            <real key="value" value="10"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>

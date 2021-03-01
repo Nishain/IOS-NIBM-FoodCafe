@@ -9,17 +9,21 @@
 import UIKit
 
 class FoodCategoryList: UICollectionView,UICollectionViewDelegate,UICollectionViewDataSource {
-    var selectedIndex = -1
-    let data:[String] = ["juices","deserts","breakfast","juices","deserts","breakfast","juices","deserts","breakfast"]
+    var selectedIndex = 0
+    var data:[String] = []
+    var onCatergorySelected : ((Int,String)->Void)?
     required init?(coder: NSCoder) {
         super.init(coder:coder)
         delegate = self
         dataSource = self
     }
+    func setData(_ newData:[String]){
+        data = newData
+        reloadData()
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         data.count
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "foodCatergoryCell", for: indexPath) as! FoodCategoryCell
         cell.bodyBtn.setTitle(data[indexPath.row], for:.normal)
@@ -35,6 +39,7 @@ class FoodCategoryList: UICollectionView,UICollectionViewDelegate,UICollectionVi
         cell.userPressBtn = {button in
             self.selectedIndex = indexPath.row
             self.reloadData()
+            self.onCatergorySelected?(indexPath.row,self.data[indexPath.row])
             //self.reloadItems(at: indexesToUpdate)
         }
         return cell
