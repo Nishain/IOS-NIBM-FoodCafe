@@ -13,6 +13,16 @@ class OrderListController: UITableViewController {
     let db = Firestore.firestore()
     let auth = Auth.auth()
     var newOrderToAdded:[PendingOrder]?
+
+    
+    var finishedOrder:[Reciept] = []{
+        didSet{
+            updatePastOrders(finishedOrder)
+        }
+    }
+    func updatePastOrders(_ reciepts :[Reciept]) {
+        db.document("userHistory/\(42383)").updateData(["history":FieldValue.arrayUnion(reciepts.map{$0.asDictionary()}) ])
+    }
     var data:[OrderStatus] = []//[OrderStatus(orderID: 345, status: "On the way")]
     var didDataLoaded = false
     let statusConstants:[Int:String] = [
@@ -30,20 +40,29 @@ class OrderListController: UITableViewController {
                 if !documentSnapshot!.exists{
                     return
                 }
+                var expiredOrdersPresent = false
                 self.data = []
                 let orderList = (documentSnapshot!.data()?["orderList"] ?? []) as! [[String:Any]]
+                let dateFormater = DateFormatter()
+                dateFormater.dateFormat = "dd-MM-YY HH:mm"
                 for order in orderList{
                     let orderStatus = self.mapDictionaryToData(order: order)
-                    print(orderStatus)
-                    self.data.append(orderStatus)
+                    if orderStatus.status > 3{
+                        expiredOrdersPresent = true
+                        self.finishedOrder.append(Reciept(date: dateFormater.string(from: Date()), products: orderStatus.orderInfo!))
+                    }else{
+                        self.data.append(orderStatus)
+                    }
+                    
+                }
+                if(expiredOrdersPresent){
+                    self.data = self.data.filter{$0.status < 4}
+                    self.db.document("user/\(42383)").updateData(["orderList":self.mapDataToDictionary()])
                 }
             }
             if(!self.didDataLoaded && self.newOrderToAdded != nil){
                 self.addOrderToData()
-                let dictionaryArray = self.data.map({
-                ["orderID":$0.orderID,"status":$0.status]
-                }) as [[String:Any]]
-                self.db.document("user/\(42383)").updateData(["orderList":dictionaryArray])
+                self.db.document("user/\(42383)").updateData(["orderList":self.mapDataToDictionary()])
                 
                 self.newOrderToAdded = nil
             }

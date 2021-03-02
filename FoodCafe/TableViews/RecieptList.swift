@@ -34,7 +34,10 @@ class RecieptList: UITableView, UITableViewDelegate, UITableViewDataSource {
         cell.totalPrice.text = String(reciept.totalCost)
         return cell
     }
-    
+    func updateData(_ data:[Reciept]){
+        self.data = data
+        reloadData()
+    }
 
     required init?(coder: NSCoder) {
         super.init(coder:coder)
