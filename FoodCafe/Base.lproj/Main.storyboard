@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7fv-M4-bvV">
-                                <rect key="frame" x="50" y="312.66666666666669" width="275" height="187"/>
+                                <rect key="frame" x="50" y="313.66666666666669" width="275" height="185"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="nishain.atomic@gmail.com" borderStyle="line" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="buF-Dh-HnJ" userLabel="email" customClass="PaddingTextUI" customModule="FoodCafe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="275" height="38"/>
@@ -30,7 +30,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Phonenumber" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Td-N9-lIl" userLabel="phonenumber" customClass="PaddingTextUI" customModule="FoodCafe" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="48" width="275" height="41"/>
+                                        <rect key="frame" x="0.0" y="48" width="275" height="39"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                         <userDefinedRuntimeAttributes>
@@ -40,7 +40,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1234567" borderStyle="line" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UL9-nC-hjB" userLabel="password" customClass="PaddingTextUI" customModule="FoodCafe" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="99" width="275" height="39"/>
+                                        <rect key="frame" x="0.0" y="97" width="275" height="39"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
@@ -50,7 +50,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XKR-2L-yQ7" userLabel="confirmPassword" customClass="PaddingTextUI" customModule="FoodCafe" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="148" width="275" height="39"/>
+                                        <rect key="frame" x="0.0" y="146" width="275" height="39"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
@@ -62,14 +62,14 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Vrq-R7-tND">
-                                <rect key="frame" x="67.666666666666686" y="146.33333333333334" width="240" height="128.00000000000003"/>
+                                <rect key="frame" x="67.666666666666686" y="147.33333333333334" width="240" height="128.00000000000003"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="a6m-c0-Xg3"/>
                                     <constraint firstAttribute="height" constant="128" id="iCt-cN-0eH"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="koo-6N-BNL">
-                                <rect key="frame" x="50" y="519.66666666666663" width="275" height="88"/>
+                                <rect key="frame" x="50" y="518.66666666666663" width="275" height="88"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rf4-Bi-OxB" customClass="RoundBtn" customModule="FoodCafe" customModuleProvider="target">
                                         <rect key="frame" x="94" y="0.0" width="87" height="48"/>
@@ -99,6 +99,9 @@
                                         <state key="normal" title="Forget Password">
                                             <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onForgetPassword:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7y5-Bv-Lv1"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -208,19 +211,19 @@
                                         <rect key="frame" x="0.0" y="207" width="375" height="611"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="xDK-ch-h9z">
-                                                <rect key="frame" x="10" y="0.0" width="355" height="105"/>
+                                                <rect key="frame" x="10" y="0.0" width="355" height="125"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="D0d-FA-Azx">
-                                                        <rect key="frame" x="0.0" y="0.0" width="355" height="20.333333333333332"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="355" height="40.333333333333336"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJn-v8-nKL">
-                                                                <rect key="frame" x="0.0" y="0.0" width="83" height="20.333333333333332"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="83" height="40.333333333333336"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Offer value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kes-c3-e9A" customClass="UIPaddingLabel" customModule="FoodCafe" customModuleProvider="target">
-                                                                <rect key="frame" x="271" y="0.0" width="84" height="20.333333333333332"/>
+                                                                <rect key="frame" x="251" y="0.0" width="104" height="40.333333333333336"/>
                                                                 <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -234,13 +237,13 @@
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYU-IT-8KS" userLabel="price">
-                                                        <rect key="frame" x="0.0" y="27.333333333333314" width="355" height="30"/>
+                                                        <rect key="frame" x="0.0" y="47.333333333333314" width="355" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kdlfnsdjknfdnfjdnfdsnjnnsjakdnjsn dsa bdasj   sajdhs dbasbhjbjas sankdjnska nbenwknjwen" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCP-c2-SDH" userLabel="description">
-                                                        <rect key="frame" x="0.0" y="64.333333333333314" width="355" height="40.666666666666657"/>
+                                                        <rect key="frame" x="0.0" y="84.333333333333314" width="355" height="40.666666666666657"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -258,7 +261,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJu-ww-Nrn" customClass="RoundBtn" customModule="FoodCafe" customModuleProvider="target">
-                                <rect key="frame" x="136" y="660" width="103" height="18"/>
+                                <rect key="frame" x="128.66666666666666" y="630" width="118" height="48"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
                                 <state key="normal" title="Add 1 to cart">
@@ -486,7 +489,7 @@ Item 2</string>
         <!--Order-->
         <scene sceneID="4rw-8s-Vyg">
             <objects>
-                <tableViewController title="Order" id="Kob-Ad-Red" customClass="OrderListController" customModule="FoodCafe" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="activeOrderScreen" title="Order" id="Kob-Ad-Red" customClass="OrderListController" customModule="FoodCafe" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="lkq-og-KM1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -518,6 +521,9 @@ Item 2</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="71" id="IBw-Vk-XsS"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -577,16 +583,7 @@ Item 2</string>
         <scene sceneID="RjU-4C-4yH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="udW-hR-Iwf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Food" id="Wf0-bs-q8r">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
-                                <color key="value" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Food" id="Wf0-bs-q8r"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ReE-Qi-33v">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -848,6 +845,9 @@ Item 2</string>
                                         <real key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onOrdered:" destination="cy4-Ls-JQS" eventType="touchUpInside" id="z5N-pW-wrd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

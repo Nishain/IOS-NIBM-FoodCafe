@@ -31,6 +31,9 @@ class AuthScreen: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    @IBAction func onForgetPassword(_ sender: Any) {
+        //needs to be implemented
+    }
     @IBAction func primaryBtnTaped(_ sender: UIButton) {
         if currentMode == .login{
             loginUser()

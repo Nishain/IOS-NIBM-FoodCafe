@@ -115,6 +115,7 @@
 		9474D04E25E4F7FC00D62B26 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				940DE82525EB681A00CA3F3C /* OrderListController.swift */,
 				94EBA74525EC96A200C5CDE6 /* AlertPopup.swift */,
 				9474D05125E4F95000D62B26 /* FoodScreen.swift */,
 				94D7E22725E777E50043B9A4 /* FullFoodDetailScreen.swift */,
@@ -133,7 +134,6 @@
 				94D7E22325E76E2A0043B9A4 /* FoodList.swift */,
 				94D496F525EB5A190033FA3E /* RecieptList.swift */,
 				9474D04E25E4F7FC00D62B26 /* Screens */,
-				940DE82525EB681A00CA3F3C /* OrderListController.swift */,
 			);
 			path = TableViews;
 			sourceTree = "<group>";

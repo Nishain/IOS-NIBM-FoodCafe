@@ -20,6 +20,13 @@ class FoodScreen: UIViewController {
     let db = Firestore.firestore()
     let imageStore = Storage.storage()
     
+   @IBAction func onOrdered(_ sender: Any) {
+    let activeOrderScreen = tabBarController!.viewControllers![1] as! OrderListController//storyboard!.instantiateViewController(identifier: "activeOrderScreen") as OrderListController
+            activeOrderScreen.newOrderToAdded = orderQty.data
+        tabBarController?.selectedViewController = activeOrderScreen
+        
+        //activeOrderScreen.addOrder(order:orderQty.data)
+    }
     func loadData(catergory:String?){
         var foodList:[FoodDetail] = []
         var catergories:[String] = ["All"]
@@ -45,11 +52,13 @@ class FoodScreen: UIViewController {
                     foodDetail.promotion = food["promotion"] as! Int
                 }
                 if(catergory == nil){
-                    catergories.append(foodDetail.type)
+                    if(!catergories.contains(foodDetail.type)){
+                        catergories.append(foodDetail.type)
+                    }
                 }
                 
                 self.imageStore.reference(withPath: "foods/\(document.documentID).jpg").getData(maxSize: 1 * 1024 * 1024, completion: {data,imageErr in
-                    print("foods/\(document.documentID).jpg")
+                    
                     if(imageErr != nil){
                         print(imageErr)
                     }else{
@@ -79,7 +88,7 @@ class FoodScreen: UIViewController {
         foodCatergories.onCatergorySelected = {index,catergory in
             self.loadData(catergory: index == 0 ? nil : catergory)
         }
-        loadData(catergory: nil)
+        //loadData(catergory: nil)
         // Do any additional setup after loading the view.
     }
     @IBAction func onSignOut(_ sender: Any) {
@@ -88,7 +97,7 @@ class FoodScreen: UIViewController {
         print("user signed out")
     }
     
-
+//activeOrderScreen
     /*
     // MARK: - Navigation
 
