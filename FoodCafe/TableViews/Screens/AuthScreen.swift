@@ -25,10 +25,13 @@ class AuthScreen: UIViewController {
     var alertPop:AlertPopup!
     let auth = Auth.auth()
     override func viewDidLoad() {
+//        let screen  = storyboard!.instantiateViewController(identifier: "homeScreen")
+//        screen.modalPresentationStyle = .overCurrentContext
+//        present(screen,animated: true)
         alertPop = AlertPopup(self)
     
         super.viewDidLoad()
-
+        swapFunctioningMode()
         // Do any additional setup after loading the view.
     }
     @IBAction func onForgetPassword(_ sender: Any) {
@@ -56,8 +59,7 @@ class AuthScreen: UIViewController {
     }
     func moveToMainScreen() {
         let mainScreen = self.storyboard!.instantiateViewController(identifier: "homeScreen")
-        mainScreen.modalPresentationStyle = .overCurrentContext
-        self.present(mainScreen, animated: true, completion: nil)
+        navigationController?.setViewControllers([mainScreen], animated: true)
     }
     func loginUser(){
         if(isEmpty([email,password])){

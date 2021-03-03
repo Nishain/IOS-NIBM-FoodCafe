@@ -39,6 +39,7 @@
 		94DB7ADD25E3712700C41FDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94DB7ADB25E3712700C41FDB /* Main.storyboard */; };
 		94DB7ADF25E3714300C41FDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94DB7ADE25E3714300C41FDB /* Assets.xcassets */; };
 		94DB7AE225E3714300C41FDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94DB7AE025E3714300C41FDB /* LaunchScreen.storyboard */; };
+		94EB488A25EFCB76001ECC0D /* RootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EB488925EFCB76001ECC0D /* RootController.swift */; };
 		94EBA74625EC96A200C5CDE6 /* AlertPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EBA74525EC96A200C5CDE6 /* AlertPopup.swift */; };
 		94F54BAD25E385AE00C6BDDC /* PaddingTextUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F54BAC25E385AE00C6BDDC /* PaddingTextUI.swift */; };
 		94F54BAF25E3871D00C6BDDC /* RoundBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F54BAE25E3871D00C6BDDC /* RoundBtn.swift */; };
@@ -78,6 +79,7 @@
 		94DB7ADE25E3714300C41FDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94DB7AE125E3714300C41FDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94DB7AE325E3714300C41FDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94EB488925EFCB76001ECC0D /* RootController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootController.swift; sourceTree = "<group>"; };
 		94EBA74525EC96A200C5CDE6 /* AlertPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPopup.swift; sourceTree = "<group>"; };
 		94F54BAC25E385AE00C6BDDC /* PaddingTextUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingTextUI.swift; sourceTree = "<group>"; };
 		94F54BAE25E3871D00C6BDDC /* RoundBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundBtn.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				9413467025E7EC15001750D3 /* AuthScreen.swift */,
 				94D496EF25EB57960033FA3E /* AccountScreen.swift */,
 				940DE82D25EB801000CA3F3C /* PermissionRequestScreen.swift */,
+				94EB488925EFCB76001ECC0D /* RootController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				94D496F025EB57960033FA3E /* AccountScreen.swift in Sources */,
 				9474D05525E4FB9800D62B26 /* PendingOrderList.swift in Sources */,
 				94D7E22025E76A2C0043B9A4 /* UIPaddingLabel.swift in Sources */,
+				94EB488A25EFCB76001ECC0D /* RootController.swift in Sources */,
 				94AE925725E541C200CFC2AD /* PendingOrderCell.swift in Sources */,
 				94DB7AD825E3712700C41FDB /* SceneDelegate.swift in Sources */,
 			);

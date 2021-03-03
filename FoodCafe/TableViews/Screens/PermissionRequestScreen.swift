@@ -23,7 +23,8 @@ class PermissionRequestScreen: UIViewController {
         // Do any additional setup after loading the view.
     }
     func navigateToMainScreen(){
-        navigationController?.pushViewController(storyboard!.instantiateViewController(identifier: auth.currentUser==nil ? "authScreen":"homeScreen"), animated: true)
+        let nextScreen = storyboard!.instantiateViewController(identifier: auth.currentUser==nil ? "authScreen":"homeScreen")
+        navigationController?.setViewControllers([nextScreen], animated: true)
     }
 
     @IBAction func allowPermssionTapped(_ sender: Any) {

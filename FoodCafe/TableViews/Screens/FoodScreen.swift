@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 class FoodScreen: UIViewController {
 
-    @IBOutlet weak var orderQty: PendingOrderList!
+    @IBOutlet weak var activeOrderList: PendingOrderList!
     @IBOutlet weak var foodCatergories: FoodCategoryList!
     @IBOutlet weak var foodList: FoodList!
     @IBOutlet weak var cartItemCounter: UILabel!
@@ -22,7 +22,7 @@ class FoodScreen: UIViewController {
     
    @IBAction func onOrdered(_ sender: Any) {
     let activeOrderScreen = tabBarController!.viewControllers![1] as! OrderListController//storyboard!.instantiateViewController(identifier: "activeOrderScreen") as OrderListController
-            activeOrderScreen.newOrderToAdded = orderQty.data
+            activeOrderScreen.newOrderToAdded = activeOrderList.data
         tabBarController?.selectedViewController = activeOrderScreen
         
         //activeOrderScreen.addOrder(order:orderQty.data)
@@ -74,27 +74,38 @@ class FoodScreen: UIViewController {
             })
     }
     override func viewDidLoad() {
-        orderQty.onSumChanged = {quantity,cost in
+        orderBtn.isHidden = true
+        heightContraint.constant = 0 
+        activeOrderList.onSumChanged = {quantity,cost in
+            print("quantity changed")
+            self.orderBtn.isHidden = (cost == 0)
             self.cartItemCounter.text = "\(quantity) items"
             self.orderBtn.setTitle("Rs. \(cost)", for: .normal)
         }
-        orderQty.heightConstraint = heightContraint
+        activeOrderList.heightConstraint = heightContraint
         super.viewDidLoad()
         foodList.onItemSelected = {selectedDetail in
             let detailScreen = self.storyboard?.instantiateViewController(identifier: "foodDetailScreen") as! FullFoodDetailScreen
             detailScreen.foodDetail = selectedDetail
+            detailScreen.onOrderedRecieved = {
+                self.activeOrderList.addOrder(foodDetail: selectedDetail)
+            }
             self.navigationController?.pushViewController(detailScreen, animated: false)
         }
         foodCatergories.onCatergorySelected = {index,catergory in
             self.loadData(catergory: index == 0 ? nil : catergory)
         }
-        //loadData(catergory: nil)
+    //    loadData(catergory: nil)
         // Do any additional setup after loading the view.
     }
     @IBAction func onSignOut(_ sender: Any) {
         try? Auth.auth().signOut()
        // let authenticateScreen = storyboard!.instantiateViewController(identifier: "authScreen")
         print("user signed out")
+        let rootNavigator = navigationController?.tabBarController?.navigationController
+        let loginScreen = storyboard!.instantiateViewController(withIdentifier: "authScreen")
+        rootNavigator!.setViewControllers([loginScreen], animated: true)
+       
     }
     
 //activeOrderScreen

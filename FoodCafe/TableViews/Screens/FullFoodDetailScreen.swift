@@ -16,6 +16,7 @@ class FullFoodDetailScreen: UIViewController {
     @IBOutlet weak var foodDescription: UILabel!
     @IBOutlet weak var promotion: UIPaddingLabel!
     var foodDetail:FoodDetail!
+    var onOrderedRecieved : (()->Void)?
     override func viewDidLoad() {
         super.viewDidLoad()
         foodImage.image = foodDetail.image
@@ -33,6 +34,10 @@ class FullFoodDetailScreen: UIViewController {
     
     @IBAction func onMakePhoneCall(_ sender: Any) {
         UIApplication.shared.open(URL(string:"tel://\(foodDetail.phoneNumber)")!, options: [:], completionHandler: nil)
+    }
+    @IBAction func onOrder(_ sender: RoundBtn) {
+        onOrderedRecieved?()
+        navigationController?.popViewController(animated: true)
     }
     
     /*

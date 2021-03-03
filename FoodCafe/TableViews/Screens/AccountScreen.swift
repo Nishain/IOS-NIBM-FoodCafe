@@ -52,6 +52,7 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
         let datePickerView = UIDatePicker()
                    datePickerView.datePickerMode = .date
         datePickerView.tag = tag
+        datePickerView.backgroundColor = .white
         if(tag == 2){
             datePickerView.maximumDate = Date()
         }else{
@@ -73,11 +74,12 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
         
         dateFormatter.dateFormat = DateFormatingStrings.dateOnly
         
-        profileImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(profileImageTapped(_:))))
-        usernameLabel.text = auth.currentUser?.displayName
-        contactNoLabel.text = contactNo
+        
         
         super.viewDidLoad()
+        profileImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(profileImageTapped(_:))))
+        usernameLabel.text = auth.currentUser?.email
+        contactNoLabel.text = contactNo
         
         setupDatePicker(textField: beforeDate, tag: 1)
         setupDatePicker(textField: toDate, tag: 2)
