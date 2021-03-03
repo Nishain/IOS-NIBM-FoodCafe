@@ -7,3 +7,7 @@
 //
 
 import Foundation
+struct DateFormatingStrings {
+    static let cellDateFormat = "yy/MM/dd HH:mm"
+    static let dateOnly = "yy/MM/dd"
+}

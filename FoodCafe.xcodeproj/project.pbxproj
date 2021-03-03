@@ -14,6 +14,7 @@
 		940DE82E25EB801000CA3F3C /* PermissionRequestScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940DE82D25EB801000CA3F3C /* PermissionRequestScreen.swift */; };
 		940DE83125EB80EA00CA3F3C /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940DE83025EB80EA00CA3F3C /* LocationService.swift */; };
 		9413467125E7EC15001750D3 /* AuthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413467025E7EC15001750D3 /* AuthScreen.swift */; };
+		944B28A025EF646000A234CD /* DateFormatingStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944B289F25EF646000A234CD /* DateFormatingStrings.swift */; };
 		9474D04D25E4B6D200D62B26 /* AvatarImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9474D04C25E4B6D200D62B26 /* AvatarImage.swift */; };
 		9474D05225E4F95000D62B26 /* FoodScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9474D05125E4F95000D62B26 /* FoodScreen.swift */; };
 		9474D05525E4FB9800D62B26 /* PendingOrderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9474D05425E4FB9800D62B26 /* PendingOrderList.swift */; };
@@ -50,6 +51,7 @@
 		940DE82D25EB801000CA3F3C /* PermissionRequestScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionRequestScreen.swift; sourceTree = "<group>"; };
 		940DE83025EB80EA00CA3F3C /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		9413467025E7EC15001750D3 /* AuthScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreen.swift; sourceTree = "<group>"; };
+		944B289F25EF646000A234CD /* DateFormatingStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatingStrings.swift; sourceTree = "<group>"; };
 		9474D04C25E4B6D200D62B26 /* AvatarImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImage.swift; sourceTree = "<group>"; };
 		9474D05125E4F95000D62B26 /* FoodScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodScreen.swift; sourceTree = "<group>"; };
 		9474D05425E4FB9800D62B26 /* PendingOrderList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingOrderList.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				94D7E22525E76E790043B9A4 /* FoodDetail.swift */,
 				94D496ED25EB54C30033FA3E /* OrderStatus.swift */,
 				94D496F125EB59200033FA3E /* Reciept.swift */,
+				944B289F25EF646000A234CD /* DateFormatingStrings.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				94AE925C25E61F4100CFC2AD /* FoodCategoryList.swift in Sources */,
 				94D7E22425E76E2A0043B9A4 /* FoodList.swift in Sources */,
 				9474D05225E4F95000D62B26 /* FoodScreen.swift in Sources */,
+				944B28A025EF646000A234CD /* DateFormatingStrings.swift in Sources */,
 				94D7E22825E777E50043B9A4 /* FullFoodDetailScreen.swift in Sources */,
 				940DE82E25EB801000CA3F3C /* PermissionRequestScreen.swift in Sources */,
 				94D496F025EB57960033FA3E /* AccountScreen.swift in Sources */,

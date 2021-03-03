@@ -23,6 +23,8 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
     @IBOutlet weak var beforeDate: UITextField!
     @IBOutlet weak var toDate: UITextField!
     @IBOutlet weak var billList: RecieptList!
+    let dateFormatter = DateFormatter()
+    
     func loadData(){
         db.document("userHistory/\(42383)").addSnapshotListener({snapshotDocuement,err in
             if(err != nil){
@@ -32,20 +34,11 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
             self.data = []
             let history = (snapshotDocuement?.data()?["history"] as? [[String:Any]]) ?? []
             for entity in history{
-                let reciept = Reciept.decodeAsStruct(data: entity)
-                reciept.products.map({$0.originalPrice * $0.quantity}).reduce(0, +)
-    //                var dateCategory:Reciept? = self.data.first(where: {$0.date == reciept.date})
-    //                if(dateCategory != nil){
-    //                    dateCategory!.products += reciept.products
-    //                    dateCategory!.totalCost = dateCategory!.products.map({$0.originalPrice * $0.quantity}).reduce(0, +)
-    //                }else{
-    //                    self.data.append(reciept)
-    //                }
-                
+                var reciept = Reciept.decodeAsStruct(data: entity)
+                reciept.totalCost = reciept.products.map({$0.originalPrice * $0.quantity}).reduce(0, +)
                 self.data.append(reciept)
             }
-            self.overallTotal.text = String(self.data.map{$0.totalCost}.reduce(0,+))
-            self.billList.updateData(self.data)
+            self.refreshData(newData: self.data)
         })
     }
     
@@ -53,9 +46,7 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
         textField.tag = tag
         
         //setting intial date ...
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMM yyyy"
-        textField.text = dateFormatter.string(from: Date())
+        textField.text = tag == 2 ? dateFormatter.string(from: Date()) : "from begining"
         
         //setting the tags
         let datePickerView = UIDatePicker()
@@ -79,6 +70,9 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
         textField.inputAccessoryView = toolBar
     }
     override func viewDidLoad() {
+        
+        dateFormatter.dateFormat = DateFormatingStrings.dateOnly
+        
         profileImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(profileImageTapped(_:))))
         usernameLabel.text = auth.currentUser?.displayName
         contactNoLabel.text = contactNo
@@ -88,12 +82,33 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
         setupDatePicker(textField: beforeDate, tag: 1)
         setupDatePicker(textField: toDate, tag: 2)
         
+        loadData()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+    }
+    func refreshData(newData:[Reciept]) {
+        self.overallTotal.text = String(newData.map{$0.totalCost}.reduce(0,+))
+        self.billList.updateData(newData)
+    }
+    func filterData(fromDate:String,toDate:String){
+        let foreignDataFormater = DateFormatter()
+        foreignDataFormater.dateFormat = DateFormatingStrings.cellDateFormat
+        print("fromDate \(fromDate) toDate \(toDate)")
+        let filteredData = data.filter{
+            
+            let timeStrippedDateString = dateFormatter.string(from: foreignDataFormater.date(from: $0.date)!)
+            print("timeStrippedDateString \(timeStrippedDateString)")
+            let isLowerBoundSatisfied = dateFormatter.date(from: timeStrippedDateString)! >= dateFormatter.date(from: fromDate)!
+            let isUpperBoundSatisfied = dateFormatter.date(from: timeStrippedDateString)! <= dateFormatter.date(from: toDate)!
+            print("a \(isLowerBoundSatisfied) b \(isUpperBoundSatisfied)")
+            return isLowerBoundSatisfied && isUpperBoundSatisfied
+            
+        }
+        refreshData(newData: filteredData)
     }
     @objc func profileImageTapped(_: Any){
         let imagePickerController = UIImagePickerController()
@@ -104,10 +119,11 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
         imagePickerController.modalPresentationStyle = .fullScreen
         present(imagePickerController,animated: true)
     }
+    
+    //needs to be removed later....
     @objc func handleDatePicker(sender: UIDatePicker) {
         print("called handleDatePicker")
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMM yyyy"
+        
         if sender.tag == 2{
             (beforeDate.inputView as! UIDatePicker).maximumDate = sender.date
         }
@@ -119,14 +135,13 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
         let focusedFieldDatePicker = focusedField.inputView as! UIDatePicker
         focusedField.endEditing(true)
         
-        let dateFormatter = DateFormatter()
-       dateFormatter.dateFormat = "dd MMM yyyy"
        if sender.tag == 2{
             let beforeDatePicker = beforeDate.inputView as! UIDatePicker
             beforeDatePicker.maximumDate = focusedFieldDatePicker.date
             beforeDate.text = dateFormatter.string(from: beforeDatePicker.date)
        }
        focusedField.text = dateFormatter.string(from: focusedFieldDatePicker.date)
+        filterData(fromDate: beforeDate.text!, toDate: toDate.text!)
     }
 //   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //       self.view.endEditing(true)

@@ -44,7 +44,7 @@ class OrderListController: UITableViewController {
                 self.data = []
                 let orderList = (documentSnapshot!.data()?["orderList"] ?? []) as! [[String:Any]]
                 let dateFormater = DateFormatter()
-                dateFormater.dateFormat = "dd-MM-YY HH:mm"
+                dateFormater.dateFormat = DateFormatingStrings.cellDateFormat
                 for order in orderList{
                     let orderStatus = self.mapDictionaryToData(order: order)
                     if orderStatus.status > 3{

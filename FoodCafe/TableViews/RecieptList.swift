@@ -22,14 +22,13 @@ class RecieptList: UITableView, UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecieptCell") as! DailyRecieptCell
-        var reciept = data[indexPath.row]
+        let reciept = data[indexPath.row]
         cell.date.text = reciept.date
         cell.priceFrequencyList.text = ""
         cell.itemList.text = ""
         for r in reciept.products{
             cell.itemList.text! += "\(r.foodName)\n"
             cell.priceFrequencyList.text! += "\(r.quantity) x Rs.\(r.originalPrice)\n"
-            reciept.totalCost += r.originalPrice * r.quantity
         }
         cell.totalPrice.text = String(reciept.totalCost)
         return cell
