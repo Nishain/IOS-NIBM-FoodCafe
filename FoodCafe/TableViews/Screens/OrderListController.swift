@@ -21,7 +21,7 @@ class OrderListController: UITableViewController {
         }
     }
     func updatePastOrders(_ reciepts :[Reciept]) {
-        db.document("userHistory/\(42383)").updateData(["history":FieldValue.arrayUnion(reciepts.map{$0.asDictionary()}) ])
+        db.document("user/\(auth.currentUser!.uid)").updateData(["history":FieldValue.arrayUnion(reciepts.map{$0.asDictionary()}) ])
     }
     var data:[OrderStatus] = []//[OrderStatus(orderID: 345, status: "On the way")]
     var didDataLoaded = false
@@ -33,7 +33,7 @@ class OrderListController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("created")
-        db.document("user/\(42383)")
+        db.document("orders/\(auth.currentUser!.uid)")
             .addSnapshotListener({documentSnapshot,err in
             
             if(err == nil){
@@ -57,12 +57,12 @@ class OrderListController: UITableViewController {
                 }
                 if(expiredOrdersPresent){
                     self.data = self.data.filter{$0.status < 4}
-                    self.db.document("user/\(42383)").updateData(["orderList":self.mapDataToDictionary()])
+                    self.db.document("orders/\(self.auth.currentUser!.uid)").updateData(["orderList":self.mapDataToDictionary()])
                 }
             }
             if(!self.didDataLoaded && self.newOrderToAdded != nil){
                 self.addOrderToData()
-                self.db.document("user/\(42383)").updateData(["orderList":self.mapDataToDictionary()])
+                self.db.document("orders/\(self.auth.currentUser!.uid)").updateData(["orderList":self.mapDataToDictionary()])
                 
                 self.newOrderToAdded = nil
             }
@@ -83,31 +83,11 @@ class OrderListController: UITableViewController {
     }
     func mapDictionaryToData(order:[String:Any])->OrderStatus{
         return OrderStatus.decodeAsStruct(data: order)
-//        return OrderStatus(
-//            orderID: order["orderID"] as! Int,
-//            status: order["status"] as! Int,
-//            orderInfo: nil /*(order["catalog"] as! [[String:Any]]).map({
-//                PendingOrder(foodName: $0["foodName"] as! String,
-//                            quantity: $0["quantity"] as! Int,
-//                            originalPrice: $0["originalPrice"] as! Int)
-//            })*/
-//            //,"catalog":$0.orderInfo
-//        )
     }
     func mapDataToDictionary()->[[String:Any]]{
         
         return data.map({$0.asDictionary()})
-//            data.map({
-//            ["orderID":$0.orderID,"status":$0.status,"catalog":$0.orderInfo!.map({f in
-//                f.asDictionary()
-////                [
-////                    "foodName":f.foodName,
-////                    "originalPrice":f.originalPrice,
-////                    "quantity":f.quantity
-////                ]
-//
-//            })]
-//        })
+
     }
     override func viewWillAppear(_ animated: Bool) {
         if(newOrderToAdded != nil && didDataLoaded){
@@ -115,7 +95,7 @@ class OrderListController: UITableViewController {
             //self.data.append(OrderStatus(orderID: (self.data.map({$0.orderID}).max() ?? 99) + 1, status: 1))
             addOrderToData()
             self.newOrderToAdded = nil
-            db.document("user/\(42383)").updateData(["orderList":mapDataToDictionary()])
+            db.document("orders/\(auth.currentUser!.uid)").updateData(["orderList":mapDataToDictionary()])
         }
     }
 

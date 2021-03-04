@@ -21,8 +21,9 @@ class FoodScreen: UIViewController {
     let imageStore = Storage.storage()
     
    @IBAction func onOrdered(_ sender: Any) {
-    let activeOrderScreen = tabBarController!.viewControllers![1] as! OrderListController//storyboard!.instantiateViewController(identifier: "activeOrderScreen") as OrderListController
-            activeOrderScreen.newOrderToAdded = activeOrderList.data
+    let activeOrderScreen = tabBarController!.viewControllers![1] as! OrderListController
+        activeOrderScreen.newOrderToAdded = activeOrderList.data
+        activeOrderList.resetList()
         tabBarController?.selectedViewController = activeOrderScreen
         
         //activeOrderScreen.addOrder(order:orderQty.data)
@@ -95,7 +96,7 @@ class FoodScreen: UIViewController {
         foodCatergories.onCatergorySelected = {index,catergory in
             self.loadData(catergory: index == 0 ? nil : catergory)
         }
-    //    loadData(catergory: nil)
+        loadData(catergory: nil)
         // Do any additional setup after loading the view.
     }
     @IBAction func onSignOut(_ sender: Any) {

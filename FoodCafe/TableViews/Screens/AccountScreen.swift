@@ -12,9 +12,12 @@ import FirebaseAuth
 class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     let db = Firestore.firestore()
     let auth = Auth.auth()
-    @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var contactNoLabel: UILabel!
+    
+    @IBOutlet weak var displayName: UITextField!
+    @IBOutlet weak var contactDisplay: UITextField!
     @IBOutlet weak var profileImage: AvatarImage!
+    @IBOutlet weak var profileEditDoneBtn: RoundBtn!
+    
     
     var username:String?
     @IBOutlet weak var overallTotal: UILabel!
@@ -23,15 +26,20 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
     @IBOutlet weak var beforeDate: UITextField!
     @IBOutlet weak var toDate: UITextField!
     @IBOutlet weak var billList: RecieptList!
+    var currentPhoneNumber:String?
     let dateFormatter = DateFormatter()
     
     func loadData(){
-        db.document("userHistory/\(42383)").addSnapshotListener({snapshotDocuement,err in
+        db.document("user/\(auth.currentUser!.uid)").addSnapshotListener({snapshotDocuement,err in
+            
             if(err != nil){
                 print(err)
                 return
             }
             self.data = []
+            self.currentPhoneNumber = snapshotDocuement?.data()?["phoneNumber"] as! String?
+            self.contactDisplay.text = self.currentPhoneNumber
+            
             let history = (snapshotDocuement?.data()?["history"] as? [[String:Any]]) ?? []
             for entity in history{
                 var reciept = Reciept.decodeAsStruct(data: entity)
@@ -39,9 +47,36 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
                 self.data.append(reciept)
             }
             self.refreshData(newData: self.data)
-        })
+            })
     }
-    
+    @objc func onEditingProfileField(field:UITextField){
+        profileEditDoneBtn.isHidden = false
+    }
+    @IBAction func doneEditingProfile(_ sender: UIButton) {
+        profileEditDoneBtn.isHidden = true
+        displayName.endEditing(true)
+        contactDisplay.endEditing(true)
+        let alertPop = AlertPopup(self)
+        if contactDisplay.text?.count == 0{
+            return alertPop.infoPop(title: "Missing fields", body: "Contact Number field is empty!")
+        }
+        if(Int(contactDisplay.text!) == nil || contactDisplay.text!.count != 10){
+            alertPop.infoPop(title: "Invalid Contact Number", body: "Your contact no should be 10 digits long number!")
+        }
+        if displayName.text?.count == 0 {
+            print("display name is empty")
+            displayName.text = nil
+        }
+        let changeRequest = auth.currentUser?.createProfileChangeRequest()
+        changeRequest?.displayName = displayName.text
+        changeRequest?.commitChanges(completion: nil)
+        if self.displayName.text?.count == 0 {
+            self.displayName.text = self.auth.currentUser?.email
+        }
+        if currentPhoneNumber != contactDisplay.text{
+            db.document("user/\(auth.currentUser!.uid)").updateData(["phoneNumber":contactDisplay.text!])
+        }
+    }
     func setupDatePicker(textField:UITextField,tag:Int){
         textField.tag = tag
         
@@ -73,18 +108,17 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
     override func viewDidLoad() {
         
         dateFormatter.dateFormat = DateFormatingStrings.dateOnly
-        
-        
-        
+        contactDisplay.text = auth.currentUser?.phoneNumber
         super.viewDidLoad()
         profileImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(profileImageTapped(_:))))
-        usernameLabel.text = auth.currentUser?.email
-        contactNoLabel.text = contactNo
+        displayName.text = (auth.currentUser?.displayName?.count ?? 0) == 0  ? auth.currentUser?.email : auth.currentUser?.displayName
+        contactDisplay.text = contactNo
         
         setupDatePicker(textField: beforeDate, tag: 1)
         setupDatePicker(textField: toDate, tag: 2)
         
         loadData()
+        setUpProfileEditingFields()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -151,5 +185,9 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
         profileImage.image = info[.originalImage] as? UIImage
+    }
+    func setUpProfileEditingFields(){
+        displayName.addTarget(self, action: #selector(onEditingProfileField(field:)), for: .editingDidBegin)
+        contactDisplay.addTarget(self, action: #selector(onEditingProfileField(field:)), for: .editingDidBegin)
     }
 }

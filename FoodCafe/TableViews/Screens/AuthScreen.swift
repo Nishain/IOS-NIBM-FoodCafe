@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 class AuthScreen: UIViewController {
 
     enum FunctionMode{
@@ -21,6 +22,7 @@ class AuthScreen: UIViewController {
     @IBOutlet weak var primaryBtn: RoundBtn!
     @IBOutlet weak var secondaryBtn: UIButton!
     @IBOutlet weak var forgetPassword: UIButton!
+    @IBOutlet weak var toast: Toast!
     var currentMode = FunctionMode.register
     var alertPop:AlertPopup!
     let auth = Auth.auth()
@@ -32,10 +34,44 @@ class AuthScreen: UIViewController {
     
         super.viewDidLoad()
         swapFunctioningMode()
+        toast.isHidden = true
         // Do any additional setup after loading the view.
     }
     @IBAction func onForgetPassword(_ sender: Any) {
-        //needs to be implemented
+        if isEmpty([email]){
+            return alertPop.infoPop(title: "Field Empty", body: "You should at least provide your email address for forget password")
+        }
+        auth.sendPasswordReset(withEmail: email.text!, completion: {error in
+            if error == nil{
+                self.showtoast(message: "A Email is successfully submited to \(self.email.text ?? "undefined")")
+            }else{
+                self.alertEmailValidationErrorIfPresent(err: error!)
+            }
+        })
+    }
+    func alertEmailValidationErrorIfPresent(err:Error){
+        var message:String?
+        switch AuthErrorCode(rawValue: err._code) {
+        case .emailAlreadyInUse:
+            message = "email is already in use.Please use another email"
+        case.invalidEmail,.invalidRecipientEmail:
+            message = "Invalid email address.Please enter a valid one"
+        default:
+            message = nil
+        }
+        if(message != nil){
+            alertPop.infoPop(title: "Email field error", body: message!)
+        }
+    }
+    func showtoast(message:String){
+        toast.isHidden = false
+        toast.alpha = 1.0
+        toast.text = message
+        UIView.animate(withDuration: 1.0, delay: 3, options: .curveEaseOut, animations: {
+            self.toast.alpha = 0.0
+        }, completion: {(isCompleted) in
+            self.toast.isHidden = true
+        })
     }
     @IBAction func primaryBtnTaped(_ sender: UIButton) {
         if currentMode == .login{
@@ -69,12 +105,11 @@ class AuthScreen: UIViewController {
             if(err == nil){
                 self.moveToMainScreen()
             }else{
+                self.alertEmailValidationErrorIfPresent(err: err!)
                 var message:String
                 switch AuthErrorCode(rawValue: err!._code) {
                 case .userNotFound,.wrongPassword:
                     message = "Wrong credendials.Please check your credentials"
-                case .invalidEmail:
-                    message = "Invalid email address.Please enter a valid one"
                 case .networkError:
                     message = "Something went wrong with connection.Try again later"
                 default:
@@ -100,31 +135,28 @@ class AuthScreen: UIViewController {
             return alertPop.infoPop(title: "Field mismatch", body: "confirmation password doesn't match")
         }
         if Int(phonenumber.text!) == nil || phonenumber.text!.count != 10{
-            return alertPop.infoPop(title: "Invalid contact number", body: "the contact number provided is wrong format")
+            return alertPop.infoPop(title: "Invalid contact number", body: "the contact number provided should be 10 digits long numbert")
         }
         
         auth.createUser(withEmail: email.text!, password: password.text!, completion: ({result,err in
             if(err == nil){
                 //homeScreen
+                let db = Firestore.firestore()
+                db.document("user/\(result!.user.uid)").setData(["phoneNumber":self.phonenumber.text!])
+                db.document("orders/\(result!.user.uid)").setData(["orderList":[]])
                 self.moveToMainScreen()
             }else{
+                self.alertEmailValidationErrorIfPresent(err: err!)
                  var message:String
                 switch AuthErrorCode(rawValue: err!._code) {
-                               case .emailAlreadyInUse:
-                                   message = "email is already in use.Please use another email"
-                               case .invalidEmail:
-                                   message = "Invalid email address.Please enter a valid one"
-                               case .networkError:
-                                   message = "Something went wrong with connection.Try again later"
-                               case .weakPassword:
-                                   message = "passowrd is too weak"
-                               default:
-                                   message = "unknown error had occured"
-                               }
+                   case .networkError:
+                       message = "Something went wrong with connection.Try again later"
+                   case .weakPassword:
+                       message = "passowrd is too weak"
+                   default:
+                       message = "unknown error had occured"
+                   }
                 AlertPopup(self).infoPop(title: "User registration failed", body:message )
-                
-   
-                
             }
         }))
     }

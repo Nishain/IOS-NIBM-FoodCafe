@@ -10,7 +10,6 @@ import Foundation
 struct OrderStatus : Codable{
     var orderID:Int = 0
     var status:Int = 0
-    var isReady:Bool = false
     var orderInfo:[PendingOrder]?
     func asDictionary()->[String:Any]{
         let data = try? JSONEncoder().encode(self)

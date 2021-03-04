@@ -37,6 +37,11 @@ extension PendingOrderList : UITableViewDataSource,UITableViewDelegate{
         data.append(PendingOrder(foodName: foodDetail.title, quantity: 1, originalPrice: foodDetail.cost))
         insertRows(at: [IndexPath(row: data.count - 1, section: 0)], with: .top)
     }
+    func resetList(){
+        data = []
+        reloadData()
+        refreshChanges()
+    }
     func updateSumValues(){
         var totalQuantity = 0
         var totalCost = 0

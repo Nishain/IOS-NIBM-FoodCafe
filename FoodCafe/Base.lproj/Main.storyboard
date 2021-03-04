@@ -32,10 +32,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7fv-M4-bvV">
-                                <rect key="frame" x="50" y="322.66666666666669" width="275" height="167"/>
+                                <rect key="frame" x="50" y="312.66666666666669" width="275" height="187"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="nishain.atomic@gmail.com" borderStyle="line" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="buF-Dh-HnJ" userLabel="email" customClass="PaddingTextUI" customModule="FoodCafe" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="275" height="33"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="275" height="38"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
                                         <userDefinedRuntimeAttributes>
@@ -45,7 +45,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Phonenumber" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Td-N9-lIl" userLabel="phonenumber" customClass="PaddingTextUI" customModule="FoodCafe" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="43" width="275" height="36"/>
+                                        <rect key="frame" x="0.0" y="48" width="275" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                         <userDefinedRuntimeAttributes>
@@ -54,8 +54,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1234567" borderStyle="line" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UL9-nC-hjB" userLabel="password" customClass="PaddingTextUI" customModule="FoodCafe" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="89" width="275" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="line" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UL9-nC-hjB" userLabel="password" customClass="PaddingTextUI" customModule="FoodCafe" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="99" width="275" height="39"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
@@ -65,7 +65,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XKR-2L-yQ7" userLabel="confirmPassword" customClass="PaddingTextUI" customModule="FoodCafe" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="133" width="275" height="34"/>
+                                        <rect key="frame" x="0.0" y="148" width="275" height="39"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
@@ -77,17 +77,17 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Vrq-R7-tND">
-                                <rect key="frame" x="67.666666666666686" y="156.33333333333334" width="240" height="128.00000000000003"/>
+                                <rect key="frame" x="67.666666666666686" y="146.33333333333334" width="240" height="128.00000000000003"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="a6m-c0-Xg3"/>
                                     <constraint firstAttribute="height" constant="128" id="iCt-cN-0eH"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="koo-6N-BNL">
-                                <rect key="frame" x="50" y="509.66666666666674" width="275" height="58"/>
+                                <rect key="frame" x="50" y="519.66666666666663" width="275" height="88"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rf4-Bi-OxB" customClass="RoundBtn" customModule="FoodCafe" customModuleProvider="target">
-                                        <rect key="frame" x="101.66666666666666" y="0.0" width="72" height="18"/>
+                                        <rect key="frame" x="94" y="0.0" width="87" height="48"/>
                                         <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
                                         <state key="normal" title="Register">
@@ -103,14 +103,14 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMr-Ot-CNW">
-                                        <rect key="frame" x="115" y="27.999999999999943" width="45" height="30"/>
+                                        <rect key="frame" x="115" y="58" width="45" height="30"/>
                                         <state key="normal" title="Login?"/>
                                         <connections>
                                             <action selector="secondaryBtnTaped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N1A-Ik-bsg"/>
                                         </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2u8-ru-L7O">
-                                        <rect key="frame" x="80" y="57.999999999999943" width="115" height="0.0"/>
+                                        <rect key="frame" x="80" y="88" width="115" height="0.0"/>
                                         <state key="normal" title="Forget Password">
                                             <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -120,15 +120,26 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Email is successfully submited to unknown" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q8Y-lp-pq2" userLabel="toast" customClass="Toast" customModule="FoodCafe" customModuleProvider="target">
+                                <rect key="frame" x="61.666666666666657" y="682.33333333333337" width="251.99999999999997" height="40.666666666666629"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7fv-M4-bvV" secondAttribute="trailing" constant="50" id="0ya-El-uke"/>
                             <constraint firstItem="Vrq-R7-tND" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="5IF-KB-33a"/>
                             <constraint firstItem="7fv-M4-bvV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="And-wK-KA8"/>
+                            <constraint firstItem="q8Y-lp-pq2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="C9n-cK-VqV"/>
                             <constraint firstItem="koo-6N-BNL" firstAttribute="leading" secondItem="7fv-M4-bvV" secondAttribute="leading" id="Pw1-Gl-k24"/>
                             <constraint firstItem="koo-6N-BNL" firstAttribute="trailing" secondItem="7fv-M4-bvV" secondAttribute="trailing" id="QVg-px-BR7"/>
                             <constraint firstItem="7fv-M4-bvV" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-4.8114143920749939" id="Yus-Dh-EaM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="q8Y-lp-pq2" secondAttribute="bottom" constant="55" id="Yyo-fG-3IO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="q8Y-lp-pq2" secondAttribute="trailing" constant="30" id="cO4-6h-uQ5"/>
+                            <constraint firstItem="q8Y-lp-pq2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="rV8-B4-zxh"/>
                             <constraint firstItem="7fv-M4-bvV" firstAttribute="top" secondItem="Vrq-R7-tND" secondAttribute="bottom" constant="38.5" id="v09-oo-gG2"/>
                             <constraint firstItem="koo-6N-BNL" firstAttribute="top" secondItem="7fv-M4-bvV" secondAttribute="bottom" constant="20" id="yJu-wg-zsw"/>
                         </constraints>
@@ -143,6 +154,7 @@
                         <outlet property="phonenumber" destination="5Td-N9-lIl" id="e0x-GL-Mzg"/>
                         <outlet property="primaryBtn" destination="Rf4-Bi-OxB" id="8GR-Ar-UeY"/>
                         <outlet property="secondaryBtn" destination="hMr-Ot-CNW" id="Iox-jV-fa1"/>
+                        <outlet property="toast" destination="q8Y-lp-pq2" id="mNz-j2-JkE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -334,7 +346,7 @@
                                 <rect key="frame" x="20" y="99" width="335" height="170"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="KVU-JJ-278">
-                                        <rect key="frame" x="20" y="20" width="295" height="130"/>
+                                        <rect key="frame" x="20" y="20" width="315" height="130"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="YaQ-Z6-VhL" customClass="AvatarImage" customModule="FoodCafe" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
@@ -347,20 +359,38 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Qgy-wl-pXK">
-                                                <rect key="frame" x="152" y="36.666666666666657" width="143" height="56.666666666666657"/>
+                                                <rect key="frame" x="152" y="21" width="163" height="88"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9Y-16-wzH">
-                                                        <rect key="frame" x="0.0" y="0.0" width="143" height="20.333333333333332"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact No" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B6d-Sf-4GH" userLabel="Contact">
-                                                        <rect key="frame" x="0.0" y="36.333333333333343" width="143" height="20.333333333333329"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xVk-Yd-MZg" userLabel="displayName">
+                                                        <rect key="frame" x="0.0" y="0.0" width="163" height="18.666666666666668"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rj3-Dt-jaa" userLabel="contact">
+                                                        <rect key="frame" x="0.0" y="34.666666666666657" width="163" height="18.666666666666671"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bmt-JK-3Pc">
+                                                        <rect key="frame" x="0.0" y="69.333333333333343" width="163" height="18.666666666666671"/>
+                                                        <subviews>
+                                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y94-eI-SVs" userLabel="done" customClass="RoundBtn" customModule="FoodCafe" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="61" height="0.0"/>
+                                                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <state key="normal" title="Done ">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="padding">
+                                                                        <real key="value" value="10"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="doneEditingProfile:" destination="bjp-Xf-xQw" eventType="touchUpInside" id="fQ7-eI-Yx6"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -369,7 +399,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="KVU-JJ-278" secondAttribute="bottom" constant="19.999999999999943" id="1MQ-Hc-lSW"/>
-                                    <constraint firstAttribute="trailing" secondItem="KVU-JJ-278" secondAttribute="trailing" constant="20" id="ASJ-cD-yes"/>
+                                    <constraint firstAttribute="trailing" secondItem="KVU-JJ-278" secondAttribute="trailing" id="ASJ-cD-yes"/>
                                     <constraint firstItem="KVU-JJ-278" firstAttribute="leading" secondItem="W2z-CC-fxx" secondAttribute="leading" constant="20" id="CZ9-E3-oRf"/>
                                     <constraint firstItem="KVU-JJ-278" firstAttribute="top" secondItem="W2z-CC-fxx" secondAttribute="top" constant="20" id="amK-He-9tF"/>
                                 </constraints>
@@ -508,11 +538,12 @@ Item 2</string>
                     <connections>
                         <outlet property="beforeDate" destination="qRW-Wa-Xtf" id="rMu-bz-BgP"/>
                         <outlet property="billList" destination="T1l-0T-h4P" id="5YZ-Ro-yuK"/>
-                        <outlet property="contactNoLabel" destination="B6d-Sf-4GH" id="G1I-Id-oSf"/>
+                        <outlet property="contactDisplay" destination="Rj3-Dt-jaa" id="xan-7f-ibM"/>
+                        <outlet property="displayName" destination="xVk-Yd-MZg" id="RWK-Zv-cgX"/>
                         <outlet property="overallTotal" destination="UUc-DJ-yUj" id="jKB-FI-rJN"/>
+                        <outlet property="profileEditDoneBtn" destination="y94-eI-SVs" id="eR0-bG-xrX"/>
                         <outlet property="profileImage" destination="YaQ-Z6-VhL" id="s6f-yN-9kp"/>
                         <outlet property="toDate" destination="84m-VZ-bv3" id="HFv-d1-BLW"/>
-                        <outlet property="usernameLabel" destination="v9Y-16-wzH" id="QP9-Yb-x9J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jlj-Lp-bpy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
