@@ -7,12 +7,11 @@
 //
 
 import UIKit
-import FirebaseFirestore
-import FirebaseAuth
+import Firebase
 class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     let db = Firestore.firestore()
     let auth = Auth.auth()
-    
+    var storage = Storage.storage()
     @IBOutlet weak var displayName: UITextField!
     @IBOutlet weak var contactDisplay: UITextField!
     @IBOutlet weak var profileImage: AvatarImage!
@@ -119,12 +118,28 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
         
         loadData()
         setUpProfileEditingFields()
+        loadProfilePicture()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+    }
+    func loadProfilePicture(){
+       let reference = storage.reference(withPath: "user/\(auth.currentUser!.uid)")
+        reference.getData(maxSize: 1 * 1024 * 1024, completion: {data,error in
+            if data != nil{
+                self.profileImage.image = UIImage(data: data!)
+            }else{
+                if(StorageErrorCode(rawValue: error!._code) == StorageErrorCode.objectNotFound){
+                    return //no image yet
+                }else{
+                    print(error)
+                }
+                
+            }
+        })
     }
     func refreshData(newData:[Reciept]) {
         self.overallTotal.text = String(newData.map{$0.totalCost}.reduce(0,+))
@@ -184,10 +199,44 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
 //   }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
-        profileImage.image = info[.originalImage] as? UIImage
+        var image = info[.originalImage] as! UIImage
+        image = resizeImage(image: image, targetSize: CGSize(width: profileImage.frame.width, height: profileImage.frame.height))
+        storage.reference(withPath: "user/\(auth.currentUser!.uid)")
+            .putData(image.pngData()!, metadata: nil) {metaData,error in
+                if error == nil{
+                    self.profileImage.image = image
+                }else{
+                    print(error)
+                }
+            }
     }
     func setUpProfileEditingFields(){
         displayName.addTarget(self, action: #selector(onEditingProfileField(field:)), for: .editingDidBegin)
         contactDisplay.addTarget(self, action: #selector(onEditingProfileField(field:)), for: .editingDidBegin)
+    }
+    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+        let size = image.size
+
+        let widthRatio  = targetSize.width  / size.width
+        let heightRatio = targetSize.height / size.height
+
+        // Figure out what our orientation is, and use that to form the rectangle
+        var newSize: CGSize
+        if(widthRatio > heightRatio) {
+            newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
+        } else {
+            newSize = CGSize(width: size.width * widthRatio,  height: size.height * widthRatio)
+        }
+
+        // This is the rect that we've calculated out and this is what is actually used below
+        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+
+        // Actually do the resizing to the rect using the ImageContext stuff
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        image.draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return newImage!
     }
 }
