@@ -56,7 +56,7 @@ extension PendingOrderList : UITableViewDataSource,UITableViewDelegate{
         let cell = tableView.dequeueReusableCell(withIdentifier: "pendingOrder", for: indexPath) as! PendingOrderCell
         cell.information = data[indexPath.row]
         cell.itemName.text = data[indexPath.row].foodName
-        cell.itemPrice.text = String(data[indexPath.row].originalPrice * data[indexPath.row].quantity)
+        cell.itemPrice.text = "Rs \(String(data[indexPath.row].originalPrice * data[indexPath.row].quantity))"
         cell.qty.text = String(data[indexPath.row].quantity)
         cell.onQuantityChange = {change in
             let currentQty = Int(cell.qty.text!)!

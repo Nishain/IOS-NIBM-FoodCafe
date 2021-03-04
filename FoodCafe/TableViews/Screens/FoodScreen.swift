@@ -81,7 +81,7 @@ class FoodScreen: UIViewController {
             print("quantity changed")
             self.orderBtn.isHidden = (cost == 0)
             self.cartItemCounter.text = "\(quantity) items"
-            self.orderBtn.setTitle("Rs. \(cost)", for: .normal)
+            self.orderBtn.setTitle("Order (Rs. \(cost))", for: .normal)
         }
         activeOrderList.heightConstraint = heightContraint
         super.viewDidLoad()
