@@ -74,9 +74,11 @@ class FoodScreen: UIViewController {
             self.foodList.updateData(foodList)
             })
     }
+    
     override func viewDidLoad() {
         orderBtn.isHidden = true
-        heightContraint.constant = 0 
+        heightContraint.constant = 0
+        
         activeOrderList.onSumChanged = {quantity,cost in
             print("quantity changed")
             self.orderBtn.isHidden = (cost == 0)
@@ -121,4 +123,5 @@ class FoodScreen: UIViewController {
     */
 
 }
+
 

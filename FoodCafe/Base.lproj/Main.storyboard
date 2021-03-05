@@ -168,12 +168,12 @@
                                 <exclude reference="zEs-e6-EpK"/>
                                 <exclude reference="Egd-ub-b0C"/>
                                 <exclude reference="zvw-gq-qI1"/>
-                                <exclude reference="4iK-yj-sT7"/>
-                                <exclude reference="7Nk-8a-jh9"/>
                                 <exclude reference="RKR-rO-oP8"/>
                                 <exclude reference="Th3-U1-X7z"/>
                                 <exclude reference="sNj-CK-hDX"/>
                                 <exclude reference="wmo-nX-XyQ"/>
+                                <exclude reference="4iK-yj-sT7"/>
+                                <exclude reference="7Nk-8a-jh9"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
@@ -187,10 +187,6 @@
                                 <exclude reference="5IF-KB-33a"/>
                                 <include reference="Egd-ub-b0C"/>
                                 <include reference="zvw-gq-qI1"/>
-                                <include reference="4iK-yj-sT7"/>
-                                <include reference="7Nk-8a-jh9"/>
-                                <exclude reference="C9n-cK-VqV"/>
-                                <exclude reference="rV8-B4-zxh"/>
                                 <exclude reference="And-wK-KA8"/>
                                 <exclude reference="RKR-rO-oP8"/>
                                 <include reference="Th3-U1-X7z"/>
@@ -201,6 +197,10 @@
                                 <exclude reference="QVg-px-BR7"/>
                                 <include reference="wmo-nX-XyQ"/>
                                 <include reference="yJu-wg-zsw"/>
+                                <include reference="4iK-yj-sT7"/>
+                                <include reference="7Nk-8a-jh9"/>
+                                <exclude reference="C9n-cK-VqV"/>
+                                <exclude reference="rV8-B4-zxh"/>
                             </mask>
                         </variation>
                     </view>
@@ -284,21 +284,36 @@
                         <viewLayoutGuide key="safeArea" id="2Od-pq-JId"/>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="64k-YR-KGl"/>
+                                <exclude reference="JA6-4j-ANr"/>
+                                <exclude reference="Xnl-9i-fv1"/>
+                                <exclude reference="mXf-Ih-Tfm"/>
+                                <exclude reference="vdh-Ah-eZI"/>
+                                <exclude reference="6q0-Yr-UXZ"/>
+                                <exclude reference="LTY-M3-UYQ"/>
                                 <exclude reference="KZJ-PC-V41"/>
                                 <exclude reference="Skc-zb-KK1"/>
                                 <exclude reference="kl2-9M-mID"/>
                                 <exclude reference="lIO-6j-Ayp"/>
-                                <exclude reference="64k-YR-KGl"/>
-                                <exclude reference="6q0-Yr-UXZ"/>
-                                <exclude reference="LTY-M3-UYQ"/>
-                                <exclude reference="Xnl-9i-fv1"/>
-                                <exclude reference="mXf-Ih-Tfm"/>
-                                <exclude reference="vdh-Ah-eZI"/>
-                                <exclude reference="JA6-4j-ANr"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
+                                <include reference="64k-YR-KGl"/>
+                                <exclude reference="8lZ-h7-pRc"/>
+                                <exclude reference="vTp-Bw-0eK"/>
+                                <include reference="JA6-4j-ANr"/>
+                                <exclude reference="Oz4-gv-Ne1"/>
+                                <exclude reference="Bdf-ue-PWj"/>
+                                <exclude reference="JW8-0n-tAP"/>
+                                <exclude reference="OCV-5g-bP2"/>
+                                <include reference="Xnl-9i-fv1"/>
+                                <include reference="mXf-Ih-Tfm"/>
+                                <include reference="vdh-Ah-eZI"/>
+                                <include reference="6q0-Yr-UXZ"/>
+                                <include reference="LTY-M3-UYQ"/>
+                                <exclude reference="TWO-dV-keY"/>
+                                <exclude reference="ksg-tD-Nry"/>
                                 <exclude reference="03v-jB-QSl"/>
                                 <exclude reference="JYD-YX-Gf4"/>
                                 <include reference="KZJ-PC-V41"/>
@@ -306,21 +321,6 @@
                                 <include reference="Skc-zb-KK1"/>
                                 <include reference="kl2-9M-mID"/>
                                 <include reference="lIO-6j-Ayp"/>
-                                <include reference="64k-YR-KGl"/>
-                                <exclude reference="8lZ-h7-pRc"/>
-                                <exclude reference="vTp-Bw-0eK"/>
-                                <include reference="6q0-Yr-UXZ"/>
-                                <include reference="LTY-M3-UYQ"/>
-                                <exclude reference="TWO-dV-keY"/>
-                                <exclude reference="ksg-tD-Nry"/>
-                                <exclude reference="Bdf-ue-PWj"/>
-                                <exclude reference="JW8-0n-tAP"/>
-                                <exclude reference="OCV-5g-bP2"/>
-                                <include reference="Xnl-9i-fv1"/>
-                                <include reference="mXf-Ih-Tfm"/>
-                                <include reference="vdh-Ah-eZI"/>
-                                <include reference="JA6-4j-ANr"/>
-                                <exclude reference="Oz4-gv-Ne1"/>
                             </mask>
                         </variation>
                     </view>
@@ -353,7 +353,7 @@
                                                 <rect key="frame" x="0.0" y="207" width="375" height="611"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="xDK-ch-h9z">
-                                                        <rect key="frame" x="10" y="0.0" width="355" height="3046.3333333333335"/>
+                                                        <rect key="frame" x="10" y="0.0" width="355" height="104.66666666666667"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="D0d-FA-Azx">
                                                                 <rect key="frame" x="0.0" y="0.0" width="355" height="40.333333333333336"/>
@@ -384,27 +384,8 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCP-c2-SDH" userLabel="description">
-                                                                <rect key="frame" x="0.0" y="84.333333333333258" width="355" height="2962"/>
-                                                                <mutableString key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum, nibh vitae sodales interdum, enim risus ornare odio, eu fringilla neque quam quis erat. Integer elit dolor, rhoncus sed tempus eget, varius vel nibh. Nullam egestas aliquet odio sit amet fermentum. Sed ultrices maximus nisl, in dignissim arcu mattis vitae. Aenean vehicula magna a enim ullamcorper, id tempus enim volutpat. Vestibulum varius mi quis ullamcorper vehicula. Morbi quis turpis at odio lobortis ullamcorper eu a ipsum. In convallis fringilla faucibus. In porta hendrerit ex, in condimentum nisi scelerisque sed. Etiam ac tellus elit. Etiam sollicitudin in diam vel scelerisque. Donec luctus fermentum ante, a vestibulum justo tincidunt a. Curabitur sed mollis odio.
-
-Nunc porttitor urna a nibh fermentum, ac venenatis massa cursus. Quisque commodo augue eget lorem pretium fermentum. Morbi eget nisl mollis, tincidunt urna ut, elementum mi. Integer ac consectetur elit. Vivamus iaculis ornare leo et faucibus. Donec sit amet purus eget massa ornare placerat. Phasellus consectetur fringilla sem. Nam vel eros purus. Phasellus a lectus ac nisl hendrerit tristique eget et est. Nunc a nunc orci. Sed luctus augue et dui tempus maximus. In hac habitasse platea dictumst. Mauris vel magna vel felis cursus aliquam. Etiam mauris massa, elementum sit amet laoreet non, dictum a magna.
-
-In hac habitasse platea dictumst. Suspendisse potenti. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam condimentum commodo tellus, in interdum nulla vulputate in. In hac habitasse platea dictumst. Maecenas interdum velit convallis elit venenatis aliquam. Donec a mi volutpat, tincidunt nisi ut, sollicitudin leo. Vestibulum non leo sit amet enim maximus interdum quis non mi. Nulla pretium pretium posuere. Donec dui tortor, iaculis quis volutpat ac, finibus a lacus.
-
-Aliquam ornare sollicitudin elementum. Nunc quis orci in velit varius dictum. Mauris condimentum dictum dolor, at semper nibh laoreet ac. Cras ac tortor nec mauris lacinia sagittis. Etiam vel ipsum vestibulum, finibus nunc vitae, ultrices erat. Aliquam vitae orci eleifend, ullamcorper massa sed, pretium felis. In eu commodo est, ac facilisis nulla. Proin maximus augue felis, et lobortis sem vulputate non. Praesent a efficitur ligula, finibus facilisis augue. Cras iaculis sodales malesuada. Nam a nibh auctor, tempus justo et, hendrerit libero. Curabitur a neque a ex viverra finibus. Praesent mollis, enim vel porta egestas, sapien libero feugiat orci, pretium efficitur augue mauris nec est.
-
-Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas sit amet volutpat nisi, aliquet venenatis urna. Praesent tincidunt tempor velit ut aliquet. Nunc id lectus quis tellus malesuada suscipit. Integer euismod eleifend mollis. Etiam convallis sem eget arcu condimentum, id semper lacus maximus. Donec vel tempus leo, eget sodales metus.
-
-Curabitur nisi nunc, venenatis non vulputate sed, bibendum quis lorem. Nullam dapibus hendrerit dui, at aliquam metus suscipit vitae. Nam hendrerit justo lorem, rutrum tincidunt magna ultrices ac. Donec condimentum urna justo, faucibus egestas arcu venenatis eget. Pellentesque urna orci, porta a mauris sit amet, accumsan rutrum nulla. Aenean vitae porttitor diam, eu volutpat lacus. Cras convallis elit finibus est ultrices maximus. Duis condimentum efficitur nisl, rutrum consectetur nulla elementum at. In malesuada massa ut vestibulum ultricies. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla id ultrices nisi, vitae pulvinar nisi. Mauris non tempus neque. Morbi aliquam ultrices neque, vitae suscipit eros interdum finibus. Nullam lobortis libero et ipsum vestibulum, vitae rutrum quam pellentesque. Phasellus non libero eu sem ultricies congue eget eget ligula.
-
-Nunc dignissim, quam eget congue finibus, nisl lacus semper lorem, vel gravida nulla leo quis tellus. Suspendisse euismod dolor et dui tristique hendrerit. Fusce vitae consectetur ligula. Etiam porta tristique erat. Pellentesque pretium, diam vel ultrices condimentum, lorem arcu elementum lacus, eu imperdiet arcu elit sed turpis. In facilisis ligula at nulla finibus consequat. Cras posuere lobortis nunc nec malesuada.
-
-Nulla convallis in massa eu consectetur. Nam malesuada quis libero at vestibulum. Nulla placerat diam posuere, fermentum turpis vitae, laoreet mauris. Aenean sagittis turpis condimentum tincidunt finibus. Nullam sed enim id augue iaculis aliquet eu vel dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis augue imperdiet diam feugiat luctus rhoncus id dolor.
-
-Maecenas id vehicula orci, id dignissim velit. Etiam lacinia cursus elit at posuere. Donec urna mi, consequat ac consectetur id, accumsan nec eros. Phasellus et mattis odio. Ut magna est, condimentum pellentesque facilisis eget, convallis eu ante. Sed quis ullamcorper tortor. Sed eu risus enim. Pellentesque vitae hendrerit neque.
-
-Cras quis turpis vitae lorem volutpat cursus sit amet vel ligula. Vivamus id turpis id nisl sagittis laoreet ac vitae purus. Nam id elit nunc. Duis consectetur elit eu vulputate maximus. Ut gravida luctus lobortis. In hac habitasse platea dictumst. Maecenas porta pharetra volutpat. Aenean erat odio, tincidunt eu diam non, semper tincidunt diam. Nulla ut justo efficitur dui pretium convallis. Donec libero tortor, consectetur ac arcu vitae, lobortis viverra ex. Aenean egestas eros vel dui sodales, in lacinia magna tempus. Mauris id justo ut nibh congue dictum. Aliquam velit purus, vehicula eu eleifend porttitor, gravida id augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ex metus, semper eu enim et, varius iaculis felis</mutableString>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCP-c2-SDH" userLabel="description">
+                                                                <rect key="frame" x="0.0" y="84.333333333333314" width="355" height="20.333333333333329"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -433,7 +414,7 @@ Cras quis turpis vitae lorem volutpat cursus sit amet vel ligula. Vivamus id tur
                                 <viewLayoutGuide key="frameLayoutGuide" id="4n7-kW-zPq"/>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJu-ww-Nrn" customClass="RoundBtn" customModule="FoodCafe" customModuleProvider="target">
-                                <rect key="frame" x="128.66666666666666" y="630" width="118" height="48"/>
+                                <rect key="frame" x="128.66666666666666" y="693" width="118" height="48"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
                                 <state key="normal" title="Add 1 to cart">
@@ -451,7 +432,7 @@ Cras quis turpis vitae lorem volutpat cursus sit amet vel ligula. Vivamus id tur
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="6xM-Fj-dC3" firstAttribute="bottom" secondItem="EJu-ww-Nrn" secondAttribute="bottom" constant="100" id="BBD-5W-MdV"/>
+                            <constraint firstItem="6xM-Fj-dC3" firstAttribute="bottom" secondItem="EJu-ww-Nrn" secondAttribute="bottom" multiplier="1.05" id="BBD-5W-MdV"/>
                             <constraint firstItem="EJu-ww-Nrn" firstAttribute="centerX" secondItem="6xM-Fj-dC3" secondAttribute="centerX" id="R1N-zA-dwJ"/>
                             <constraint firstItem="S8G-v0-gBs" firstAttribute="trailing" secondItem="6xM-Fj-dC3" secondAttribute="trailing" id="SsF-Az-wo6"/>
                             <constraint firstAttribute="bottom" secondItem="S8G-v0-gBs" secondAttribute="bottom" id="aoF-Kz-TZI"/>
@@ -501,6 +482,7 @@ Cras quis turpis vitae lorem volutpat cursus sit amet vel ligula. Vivamus id tur
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="roundBorder" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Qgy-wl-pXK">
@@ -760,7 +742,7 @@ Item 2</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ready to pickup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUg-46-ZBz">
-                                                            <rect key="frame" x="241.66666666666663" y="0.0" width="123.33333333333334" height="71"/>
+                                                            <rect key="frame" x="241.66666666666666" y="0.0" width="123.33333333333334" height="71"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -805,14 +787,16 @@ Item 2</string>
             </objects>
             <point key="canvasLocation" x="3746" y="890"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Root Tab Bar Controller-->
         <scene sceneID="5UN-FU-01f">
             <objects>
-                <tabBarController storyboardIdentifier="homeScreen" automaticallyAdjustsScrollViewInsets="NO" id="n8R-Ta-0P0" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="homeScreen" automaticallyAdjustsScrollViewInsets="NO" id="n8R-Ta-0P0" customClass="RootTabBarController" customModule="FoodCafe" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5xI-Mi-A4y">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="udW-hR-Iwf" kind="relationship" relationship="viewControllers" id="xGx-Uh-gGv"/>
@@ -828,7 +812,9 @@ Item 2</string>
         <scene sceneID="RjU-4C-4yH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="udW-hR-Iwf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Food" id="Wf0-bs-q8r"/>
+                    <tabBarItem key="tabBarItem" title="Food" id="Wf0-bs-q8r">
+                        <inset key="largeContentSizeImageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-20"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ReE-Qi-33v">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -860,8 +846,8 @@ Item 2</string>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X Items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6OC-nN-Gj5" userLabel="totalCount">
-                                        <rect key="frame" x="297.33333333333331" y="0.0" width="57.666666666666686" height="20.333333333333332"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6OC-nN-Gj5" userLabel="totalCount">
+                                        <rect key="frame" x="298" y="0.0" width="57" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1192,7 +1178,7 @@ Item 2</string>
                     </view>
                     <navigationItem key="navigationItem" title="Food List" id="MbU-rW-ZCB">
                         <barButtonItem key="rightBarButtonItem" id="IRb-QA-klv">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kD1-TY-wLX">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kD1-TY-wLX">
                                 <rect key="frame" x="276" y="4" width="83" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
