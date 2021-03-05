@@ -22,7 +22,7 @@ class FullFoodDetailScreen: UIViewController {
         foodImage.image = foodDetail.image
         name.text = foodDetail.title
         price.text = "Rs. \(foodDetail.cost)"
-        foodDescription.text = foodDetail.foodDescription
+       // foodDescription.text = foodDetail.foodDescription
         if(foodDetail.promotion == 0){
             promotion.isHidden = true
         }else{
