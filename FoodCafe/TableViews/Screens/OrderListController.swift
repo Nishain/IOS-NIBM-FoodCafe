@@ -41,14 +41,17 @@ class OrderListController: UITableViewController {
                     return
                 }
                 var expiredOrdersPresent = false
-                self.data = []
+        
                 let orderList = (documentSnapshot!.data()?["orderList"] ?? []) as! [[String:Any]]
+                self.data = []
+            
                 let dateFormater = DateFormatter()
                 dateFormater.dateFormat = DateFormatingStrings.cellDateFormat
                 for order in orderList{
                     let orderStatus = self.mapDictionaryToData(order: order)
-                    if orderStatus.status > 3{
+                    if orderStatus.isRemovable() {
                         expiredOrdersPresent = true
+                        print("should be removed")
                         self.finishedOrder.append(Reciept(date: dateFormater.string(from: Date()), products: orderStatus.orderInfo!))
                     }else{
                         self.data.append(orderStatus)
@@ -56,13 +59,14 @@ class OrderListController: UITableViewController {
                     
                 }
                 if(expiredOrdersPresent){
-                    self.data = self.data.filter{$0.status < 4}
+                   // let dataToBeRemoved = self.data.filter{$0.isRemovable()}
+                    self.data = self.data.filter{!$0.isRemovable()}
                     self.db.document("orders/\(self.auth.currentUser!.uid)").updateData(["orderList":self.mapDataToDictionary()])
                 }
             }
             if(!self.didDataLoaded && self.newOrderToAdded != nil){
-                self.addOrderToData()
-                self.db.document("orders/\(self.auth.currentUser!.uid)").updateData(["orderList":self.mapDataToDictionary()])
+                let newOrder = self.addOrderToData()
+                self.db.document("orders/\(self.auth.currentUser!.uid)").updateData(["orderList":FieldValue.arrayUnion([newOrder])])
                 
                 self.newOrderToAdded = nil
             }
@@ -77,9 +81,11 @@ class OrderListController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    func addOrderToData(){
+    func addOrderToData()->[String:Any]{
         print("adding an order")
-        self.data.append(OrderStatus(orderID: (self.data.map({$0.orderID}).max() ?? 99) + 1, status: 1, orderInfo:newOrderToAdded))
+        let orderToBeAdded = OrderStatus(orderID: (self.data.map({$0.orderID}).max() ?? 99) + 1, status: 1, orderInfo:newOrderToAdded)
+        self.data.append(orderToBeAdded)
+        return orderToBeAdded.asDictionary()
     }
     func mapDictionaryToData(order:[String:Any])->OrderStatus{
         return OrderStatus.decodeAsStruct(data: order)
@@ -93,9 +99,9 @@ class OrderListController: UITableViewController {
         if(newOrderToAdded != nil && didDataLoaded){
             print("new order added")
             //self.data.append(OrderStatus(orderID: (self.data.map({$0.orderID}).max() ?? 99) + 1, status: 1))
-            addOrderToData()
+            let newOrder = addOrderToData()
             self.newOrderToAdded = nil
-            db.document("orders/\(auth.currentUser!.uid)").updateData(["orderList":mapDataToDictionary()])
+            db.document("orders/\(auth.currentUser!.uid)").updateData(["orderList":FieldValue.arrayUnion([newOrder])])
         }
     }
 

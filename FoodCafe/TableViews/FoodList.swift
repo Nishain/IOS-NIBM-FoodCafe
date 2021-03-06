@@ -29,6 +29,9 @@ class FoodList: UITableView,UITableViewDelegate,UITableViewDataSource {
         if(newImage == nil){
             return
         }
+        if(index > data.count){
+            return // very rare index out bound exception can occur sometimes
+        }
         data[index].image = newImage
         reloadRows(at: [IndexPath(item: index, section: 0)], with: .none)
     }

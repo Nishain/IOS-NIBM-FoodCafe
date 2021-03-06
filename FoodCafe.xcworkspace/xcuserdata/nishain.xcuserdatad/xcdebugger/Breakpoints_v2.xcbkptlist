@@ -135,7 +135,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "B329A892-4C6D-4C19-B79D-DF453278E1FA"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FoodCafe/TableViews/Screens/OrderListController.swift"
@@ -144,6 +144,22 @@
             startingLineNumber = "39"
             endingLineNumber = "39"
             landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0DBF8E15-0B92-4D44-B25C-EBC47F978AE6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FoodCafe/TableViews/Screens/AccountScreen.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "loadData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

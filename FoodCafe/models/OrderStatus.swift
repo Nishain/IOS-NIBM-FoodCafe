@@ -15,6 +15,9 @@ struct OrderStatus : Codable{
         let data = try? JSONEncoder().encode(self)
         return try! JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! [String : Any]
     }
+    func isRemovable() -> Bool {
+        return status == 0 || status > 3
+    }
     static func decodeAsStruct(data:[String:Any])->OrderStatus{
         let serializedData = try! JSONSerialization.data(withJSONObject: data, options: [])
         return try! JSONDecoder().decode(OrderStatus.self, from: serializedData)

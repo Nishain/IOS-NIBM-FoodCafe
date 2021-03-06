@@ -33,7 +33,12 @@ class RecieptList: UITableView, UITableViewDelegate, UITableViewDataSource {
         cell.totalPrice.text = String(reciept.totalCost)
         return cell
     }
-    func updateData(_ data:[Reciept]){
+    func updateData(_ data:[Reciept],_ isOnlySingleItem:Bool = false){
+        if isOnlySingleItem {
+            self.data += data
+            insertRows(at: [IndexPath(row: data.count - 1, section: 0)], with: .top)
+            return
+        }
         self.data = data
         reloadData()
     }

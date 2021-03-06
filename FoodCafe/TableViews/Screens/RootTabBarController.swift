@@ -12,19 +12,16 @@ class RootTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tabBar.tintColor = .white
+        tabBar.unselectedItemTintColor = .black
+        for barItem in tabBar.items!{
+            barItem.setTitleTextAttributes([.font:UIFont.systemFont(ofSize: 20)], for: .normal)
+        }
         // Do any additional setup after loading the view.
     }
     override func viewWillLayoutSubviews() {
         tabBar.selectionIndicatorImage = UIColor.systemYellow.image(CGSize(width: tabBar.frame.width/3, height: tabBar.frame.height))
-        tabBar.tintColor = .white
-        tabBar.unselectedItemTintColor = .black
-        for barItem in tabBar.items!{
-//            let isPortrait = UIDevice.current.orientation == UIDeviceOrientation.portrait
-//            let height = tabBar.frame.height * 0.25
-            //barItem.titlePositionAdjustment = UIOffset(horizontal: 0.0, vertical: isPortrait ? -height:0)
-            barItem.setTitleTextAttributes([.font:UIFont.systemFont(ofSize: 20)], for: .normal)
-        }
+        
     }
     /*
     // MARK: - Navigation
