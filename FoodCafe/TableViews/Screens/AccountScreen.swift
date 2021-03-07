@@ -162,6 +162,7 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
                 self.profileImage.image = UIImage(data: data!)
             }else{
                 if(StorageErrorCode(rawValue: error!._code) == StorageErrorCode.objectNotFound){
+                    self.profileImage.hideSkeleton()
                     return //no image yet
                 }else{
                     print(error)
