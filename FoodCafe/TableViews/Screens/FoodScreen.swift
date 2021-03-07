@@ -85,7 +85,6 @@ class FoodScreen: UIViewController {
         heightContraint.constant = 0
         
         activeOrderList.onSumChanged = {quantity,cost in
-            print("quantity changed")
             self.orderBtn.isHidden = (cost == 0)
             self.cartItemCounter.text = "\(quantity) items"
             self.orderBtn.setTitle("Order (Rs. \(cost))", for: .normal)
@@ -108,8 +107,6 @@ class FoodScreen: UIViewController {
     }
     @IBAction func onSignOut(_ sender: Any) {
         try? Auth.auth().signOut()
-       // let authenticateScreen = storyboard!.instantiateViewController(identifier: "authScreen")
-        print("user signed out")
         let rootNavigator = navigationController?.tabBarController?.navigationController
         let loginScreen = storyboard!.instantiateViewController(withIdentifier: "authScreen")
         rootNavigator!.setViewControllers([loginScreen], animated: true)

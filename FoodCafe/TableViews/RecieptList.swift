@@ -32,7 +32,7 @@ class RecieptList: UITableView, UITableViewDelegate, UITableViewDataSource {
     func updateData(_ data:[Reciept],_ isOnlySingleItem:Bool = false){
         if isOnlySingleItem {
             self.data.append(data[0])
-            insertRows(at: [IndexPath(row: data.count, section: 0)], with: .none)
+            insertRows(at: [IndexPath(row: data.count - 1, section: 0)], with: .none)
             return
         }
         self.data = data

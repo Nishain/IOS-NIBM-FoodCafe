@@ -42,18 +42,16 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
             self.currentPhoneNumber = snapshotDocuement?.data()?["phoneNumber"] as! String?
             self.contactDisplay.text = self.currentPhoneNumber
             if isPhoneNumberEditedOnly{
-                print("only phone number edited")
                 return //no need to update the data
             }
-            print("history \(history.count) data \(self.data.count)")
+           
             self.isOnlySingleItemAdded = ((history.count - self.data.count) == 1)
             self.data = []
             if self.isOnlySingleItemAdded{
                 history = [history.last!]
-                print("only one element is going to be added")
             }
             for entity in history{
-                print(entity)
+     
                 var reciept = Reciept.decodeAsStruct(data: entity)
                 reciept.totalCost = reciept.products.map({$0.originalPrice * $0.quantity}).reduce(0, +)
                 self.data.append(reciept)
@@ -76,7 +74,6 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
             alertPop.infoPop(title: "Invalid Contact Number", body: "Your contact no should be 10 digits long number!")
         }
         if displayName.text?.count == 0 {
-            print("display name is empty")
             displayName.text = nil
         }
         let changeRequest = auth.currentUser?.createProfileChangeRequest()
@@ -112,14 +109,22 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
         textField.inputView = datePickerView
         
        // datePickerView.addTarget(self, action: #selector(handleDatePicker(sender:)), for: .edi)
-        doneButton.tag = tag
-        var buttonList = [UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil), doneButton]
+        var secondaryFunctionButton:UIBarButtonItem
         if tag == 1{
-            buttonList.append(UIBarButtonItem(title: "from begining of time", style: .done, target: self, action: #selector(onSetttingBegingOfTime(sender:))))
+            secondaryFunctionButton = UIBarButtonItem(title: "From begining of time", style: .plain, target: self, action: #selector(onSetttingBegingOfTime(sender:)))
+        }else{
+            secondaryFunctionButton = UIBarButtonItem(title: "Set Today", style: .plain, target: self, action: #selector(onSettingTodayDate(sender:)))
         }
+        doneButton.tag = tag
+        let buttonList = [UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil),secondaryFunctionButton,doneButton]
         toolBar.setItems(buttonList, animated: true)
 
         textField.inputAccessoryView = toolBar
+    }
+    @objc func onSettingTodayDate(sender:UIBarButtonItem){
+        let datePicker = toDate.inputView as! UIDatePicker
+        datePicker.date = Date()
+        endEditingDate(sender: sender)
     }
     @objc func onSetttingBegingOfTime(sender:UIBarButtonItem){
         beforeDate.text = BEGINING_OF_TIME
@@ -166,9 +171,6 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
         })
     }
     func refreshData(newData:[Reciept]) {
-        if self.isOnlySingleItemAdded{
-            print("o !")
-        }
         self.overallTotal.text = String(newData.map{$0.totalCost}.reduce(0,+))
         self.billList.updateData(newData,isOnlySingleItemAdded)
         isOnlySingleItemAdded = false
@@ -176,11 +178,9 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
     func filterData(fromDate:String,toDate:String){
         let foreignDataFormater = DateFormatter()
         foreignDataFormater.dateFormat = DateFormatingStrings.cellDateFormat
-        print("fromDate \(fromDate) toDate \(toDate)")
         let filteredData = data.filter{
             
             let timeStrippedDateString = dateFormatter.string(from: foreignDataFormater.date(from: $0.date)!)
-            print("timeStrippedDateString \(timeStrippedDateString)")
             let isLowerBoundSatisfied = (fromDate == BEGINING_OF_TIME) || dateFormatter.date(from: timeStrippedDateString)! >= dateFormatter.date(from: fromDate)!
             let isUpperBoundSatisfied = dateFormatter.date(from: timeStrippedDateString)! <= dateFormatter.date(from: toDate)!
         
@@ -199,16 +199,7 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
         present(imagePickerController,animated: true)
     }
     
-    //needs to be removed later....
-    @objc func handleDatePicker(sender: UIDatePicker) {
-        print("called handleDatePicker")
-        
-        if sender.tag == 2{
-            (beforeDate.inputView as! UIDatePicker).maximumDate = sender.date
-        }
-        let focusedField:UITextField = sender.tag == 1 ? beforeDate : toDate
-        focusedField.text = dateFormatter.string(from: sender.date)
-    }
+   
     @objc func endEditingDate(sender:UIBarButtonItem){
         let focusedField:UITextField = sender.tag == 1 ? beforeDate : toDate
         let focusedFieldDatePicker = focusedField.inputView as! UIDatePicker

@@ -20,7 +20,8 @@ class RootTabBarController: UITabBarController {
         // Do any additional setup after loading the view.
     }
     override func viewWillLayoutSubviews() {
-        tabBar.selectionIndicatorImage = UIColor.systemYellow.image(CGSize(width: tabBar.frame.width/3, height: tabBar.frame.height))
+        
+        tabBar.selectionIndicatorImage = #colorLiteral(red: 0.9334524857, green: 0.7542939006, blue: 0.1815373071, alpha: 1).image(CGSize(width: tabBar.frame.width/3, height: tabBar.frame.height))
         
     }
     /*
