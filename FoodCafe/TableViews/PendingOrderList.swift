@@ -78,7 +78,7 @@ extension PendingOrderList : UITableViewDataSource,UITableViewDelegate{
         return cell
     }
     func refreshChanges() {
-        if(data.count<5){
+        if(data.count<3){
             heightConstraint?.constant = contentSize.height
         }
         // Configure the cell...

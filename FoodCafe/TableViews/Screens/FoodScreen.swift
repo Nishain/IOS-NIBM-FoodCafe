@@ -43,10 +43,10 @@ class FoodScreen: UIViewController {
                 let food = document.data()
                 var foodDetail = FoodDetail(image: nil,
                     title: food["title"] as! String,
-                    foodDescription: food["description"] as! String,
+                    foodDescription: food["description"] as? String,
                     promotion:(food["promotion"] as? Int) ?? 0,
                     cost: food["cost"] as! Int,
-                    phoneNumber: food["phoneNumber"] as! Int,
+                    phoneNumber: food["phoneNumber"] as? String,
                     type: food["type"] as! String
                 )
                 if(food.keys.contains("promotion")){
@@ -61,7 +61,12 @@ class FoodScreen: UIViewController {
                 self.imageStore.reference(withPath: "foods/\(document.documentID).jpg").getData(maxSize: 1 * 1024 * 1024, completion: {data,imageErr in
                     
                     if(imageErr != nil){
-                        print(imageErr)
+                        switch StorageErrorCode(rawValue: imageErr!._code) {
+                        case .objectNotFound:
+                            self.foodList.provideImage(index: index, newImage: #imageLiteral(resourceName: "foodDefault"))
+                        default:
+                            print(imageErr)
+                        }
                     }else{
                         self.foodList.provideImage(index: index, newImage: UIImage(data: data!))
                     }

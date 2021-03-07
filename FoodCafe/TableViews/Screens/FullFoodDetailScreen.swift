@@ -33,7 +33,11 @@ class FullFoodDetailScreen: UIViewController {
     }
     
     @IBAction func onMakePhoneCall(_ sender: Any) {
-        UIApplication.shared.open(URL(string:"tel://\(foodDetail.phoneNumber)")!, options: [:], completionHandler: nil)
+        if(foodDetail.phoneNumber == nil){
+            AlertPopup(self).infoPop(title: "Missing phone number", body: "the supplier has not set any phone number yet!")
+            return
+        }
+        UIApplication.shared.open(URL(string:"tel://\(foodDetail.phoneNumber!)")!, options: [:], completionHandler: nil)
     }
     @IBAction func onOrder(_ sender: RoundBtn) {
         onOrderedRecieved?()

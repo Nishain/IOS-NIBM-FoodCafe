@@ -11,9 +11,9 @@ import UIKit
 struct  FoodDetail {
     var image: UIImage?
     var title:String
-    var foodDescription:String
+    var foodDescription:String?
     var promotion:Int = 0
     var cost:Int
-    var phoneNumber:Int
+    var phoneNumber:String?
     var type:String
 }

@@ -115,15 +115,20 @@ class OrderListController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return data.count
+        return data.count == 0 ? 1 : data.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if data.count == 0{
+            return tableView.dequeueReusableCell(withIdentifier: "noOrder")!
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderDetail") as! OrderCell
         cell.orderID.text = String(data[indexPath.row].orderID)
         if(data[indexPath.row].status == 3){
             cell.orderStatus.textColor = .green
+        }else{
+            cell.orderStatus.textColor = .black
         }
         cell.orderStatus.text = statusConstants[data[indexPath.row].status]
         return cell

@@ -10,11 +10,7 @@ import UIKit
 
 class RecieptList: UITableView, UITableViewDelegate, UITableViewDataSource {
 
-    var data:[Reciept] = [Reciept(date: "2/4/22", products: [
-        PendingOrder(foodName: "food 1", quantity: 43, originalPrice: 23),
-        PendingOrder(foodName: "food 2", quantity: 12, originalPrice: 45)
-    ])]
-    
+    var data:[Reciept] = []
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         data.count
     }
@@ -35,8 +31,8 @@ class RecieptList: UITableView, UITableViewDelegate, UITableViewDataSource {
     }
     func updateData(_ data:[Reciept],_ isOnlySingleItem:Bool = false){
         if isOnlySingleItem {
-            self.data += data
-            insertRows(at: [IndexPath(row: data.count - 1, section: 0)], with: .top)
+            self.data.append(data[0])
+            insertRows(at: [IndexPath(row: data.count, section: 0)], with: .none)
             return
         }
         self.data = data

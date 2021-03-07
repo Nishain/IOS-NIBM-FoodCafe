@@ -150,7 +150,7 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
     }
     func loadProfilePicture(){
        let reference = storage.reference(withPath: "user/\(auth.currentUser!.uid)")
-        profileImage.showSkeleton()
+        profileImage.showAnimatedGradientSkeleton()
         reference.getData(maxSize: 1 * 1024 * 1024, completion: {data,error in
             if data != nil{
                 self.profileImage.hideSkeleton()
@@ -167,7 +167,7 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
     }
     func refreshData(newData:[Reciept]) {
         if self.isOnlySingleItemAdded{
-            print("only single reciept added!")
+            print("o !")
         }
         self.overallTotal.text = String(newData.map{$0.totalCost}.reduce(0,+))
         self.billList.updateData(newData,isOnlySingleItemAdded)
@@ -230,7 +230,7 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
         var image = info[.originalImage] as! UIImage
-        profileImage.showSkeleton()
+        profileImage.showAnimatedGradientSkeleton()
         image = resizeImage(image: image, targetSize: CGSize(width: profileImage.frame.width, height: profileImage.frame.height))
         storage.reference(withPath: "user/\(auth.currentUser!.uid)")
             .putData(image.pngData()!, metadata: nil) {metaData,error in

@@ -23,6 +23,7 @@ class AuthScreen: UIViewController {
     @IBOutlet weak var secondaryBtn: UIButton!
     @IBOutlet weak var forgetPassword: UIButton!
     @IBOutlet weak var toast: Toast!
+    @IBOutlet weak var textFieldContainer: UIStackView!
     var currentMode = FunctionMode.register
     var alertPop:AlertPopup!
     let auth = Auth.auth()
@@ -91,6 +92,12 @@ class AuthScreen: UIViewController {
         forgetPassword.isHidden = (currentMode == .register)
         primaryBtn.setTitle(currentMode == .login ? "Login" : "Register", for: .normal)
         secondaryBtn.setTitle(currentMode == .login ? "Register?" : "Login?", for: .normal)
+        for view in textFieldContainer.subviews{
+            let textfield = view as? UITextField
+            if !(textfield?.isHidden ?? true) {
+                textfield?.borderStyle = .line
+            }
+        }
         
     }
     func moveToMainScreen() {
