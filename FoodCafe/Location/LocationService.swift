@@ -27,17 +27,20 @@ class LocationService: CLLocationManager {
         return false
     }
     var onLocationRecived : ((CLLocation?) -> Void)?
-    var onPermissionAllowed : (() -> Void)?
+    var onPermissionAllowed : ((Bool) -> Void)?
+    var onPermissionUndetermined: (() -> Void)?
     
 }
 extension LocationService:CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if(status == .authorizedWhenInUse){
-            print("permission allowed")
-            onPermissionAllowed?()
+            onPermissionAllowed?(true)
+        }else if status == .notDetermined{
+            onPermissionUndetermined?()
         }else{
-            print("permission not allowed")
+            onPermissionAllowed?(false)
         }
+        
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         onLocationRecived?(locations.first)

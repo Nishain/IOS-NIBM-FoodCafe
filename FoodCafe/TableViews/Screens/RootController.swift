@@ -19,25 +19,19 @@ class RootController: UINavigationController {
         let homeScreen:UITabBarController!
         let canContinue = locationManager.canConinue()
         
-        print("canContinue? \(canContinue)")
         navigationBar.isHidden = true
         if(canContinue){
-            print("here we go")
+
             if(Auth.auth().currentUser == nil){
                 authenticateScreen = storyboard!.instantiateViewController(identifier: "authScreen") as AuthScreen
                 setViewControllers([authenticateScreen], animated: true)
                 //pushViewController(authenticateScreen!,animated: false)
             }else{
-                //homeScreen
-                print("going home path...")
-                
                 homeScreen = storyboard!.instantiateViewController(identifier: "homeScreen") as UITabBarController
                 setViewControllers([homeScreen], animated: true)
-                //present(homeScreen,animated: false)
             }
             
         }else{
-            print("but went this way")
             locationRequestScreen = storyboard!.instantiateViewController(identifier: "permissionRequestScreen") as PermissionRequestScreen
             setViewControllers([locationRequestScreen], animated: true)
             //pushViewController(locationRequestScreen!,animated: false)
