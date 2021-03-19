@@ -38,6 +38,7 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
             }
             var history = (snapshotDocuement?.data()?["history"] as? [[String:Any]]) ?? []
             
+            //check if the change in the databse is due to change in phone number only.Then no need to refresh the data again
             let isPhoneNumberEditedOnly = (history.count == self.data.count && self.currentPhoneNumber != (snapshotDocuement?.data()?["phoneNumber"] as! String?) ?? nil)
             self.currentPhoneNumber = snapshotDocuement?.data()?["phoneNumber"] as! String?
             self.contactDisplay.text = self.currentPhoneNumber
@@ -52,18 +53,22 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
             }
             for entity in history{
      
-                var reciept = Reciept.decodeAsStruct(data: entity)
+                var reciept = Reciept.decodeAsStruct(data: entity)//decode the dictionary entity back to structure
+                //the total cost will sum of products unit price * quantity in single reciept
                 reciept.totalCost = reciept.products.map({$0.originalPrice * $0.quantity}).reduce(0, +)
                 self.data.append(reciept)
             }
+            //refresh data based on date filtering
             self.filterData(fromDate: self.beforeDate.text!, toDate: self.toDate.text!)
             })
     }
+    //show the edit done button when editing start user profile texfields
     @objc func onEditingProfileField(field:UITextField){
         profileEditDoneBtn.isHidden = false
     }
     @IBAction func doneEditingProfile(_ sender: UIButton) {
         profileEditDoneBtn.isHidden = true
+        //force stop editing
         displayName.endEditing(true)
         contactDisplay.endEditing(true)
         let alertPop = AlertPopup(self)
@@ -79,18 +84,25 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
         let changeRequest = auth.currentUser?.createProfileChangeRequest()
         changeRequest?.displayName = displayName.text
         changeRequest?.commitChanges(completion: nil)
+        //if the user remove the display name - when display string length is 0 then display the email...
         if self.displayName.text?.count == 0 && self.displayName.text != self.auth.currentUser?.email{
             self.displayName.text = self.auth.currentUser?.email
         }
+        //the updathe phoneNumber in database when there is a change only...
         if currentPhoneNumber != contactDisplay.text{
             db.document("user/\(auth.currentUser!.uid)").updateData(["phoneNumber":contactDisplay.text!])
         }
     }
+    
+    //setting the dataTime pick texfields
+    //tag 1 - before date
+    //tag 3 - after date
     func setupDatePicker(textField:UITextField,tag:Int){
         textField.tag = tag
         
         //setting intial date ...
-        textField.text = tag == 2 ? dateFormatter.string(from: Date()) : BEGINING_OF_TIME
+        textField.text = tag == 2 ? dateFormatter.string(from: Date()) //today date
+            : BEGINING_OF_TIME
         
         //setting the tags
         let datePickerView = UIDatePicker()
@@ -108,7 +120,11 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
         let toolBar = UIToolbar.init(frame: CGRect(x: 0, y: 0, width: view.bounds.size.width, height: 44))
         textField.inputView = datePickerView
         
-       // datePickerView.addTarget(self, action: #selector(handleDatePicker(sender:)), for: .edi)
+       /*
+         setting the secondary button
+         before date - the from beging of time
+         after date - set for today date
+        */
         var secondaryFunctionButton:UIBarButtonItem
         if tag == 1{
             secondaryFunctionButton = UIBarButtonItem(title: "From begining of time", style: .plain, target: self, action: #selector(onSetttingBegingOfTime(sender:)))
@@ -116,6 +132,7 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
             secondaryFunctionButton = UIBarButtonItem(title: "Set Today", style: .plain, target: self, action: #selector(onSettingTodayDate(sender:)))
         }
         doneButton.tag = tag
+        //setting the toolbar
         let buttonList = [UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil),secondaryFunctionButton,doneButton]
         toolBar.setItems(buttonList, animated: true)
 
@@ -129,6 +146,7 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
     @objc func onSetttingBegingOfTime(sender:UIBarButtonItem){
         beforeDate.text = BEGINING_OF_TIME
         beforeDate.endEditing(true)
+        //start refreshing data
         filterData(fromDate: beforeDate.text!, toDate: toDate.text!)
     }
     override func viewDidLoad() {
@@ -146,11 +164,7 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
         loadData()
         setUpProfileEditingFields()
         loadProfilePicture()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    
         
     }
     func loadProfilePicture(){
@@ -171,16 +185,23 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
             }
         })
     }
+    //refresh the data in the tableView
     func refreshData(newData:[Reciept]) {
+        //updating total cost of all fitered items
         self.overallTotal.text = String(newData.map{$0.totalCost}.reduce(0,+))
-        self.billList.updateData(newData,isOnlySingleItemAdded)
+        self.billList.updateData(newData,isOnlySingleItemAdded) //indicate that no need to update entire tableView if isOnlySingleItemAdded is true - only just append to end of tableView
         isOnlySingleItemAdded = false
     }
+    
+    //function to filter the list of reciept by date
     func filterData(fromDate:String,toDate:String){
         let foreignDataFormater = DateFormatter()
         foreignDataFormater.dateFormat = DateFormatingStrings.cellDateFormat
         let filteredData = data.filter{
-            
+            /*Stripping the time component from date instnace this is because in example if after date is set today and if recipet has date like today + 8:30 AM then isUpperBoundSatisfied is never satisfied its after the today date.
+             isLowerBoundSatisfied - before date condition, always satisfied if from begining of time
+             isUpperBoundSatisfied - after date condition
+             */
             let timeStrippedDateString = dateFormatter.string(from: foreignDataFormater.date(from: $0.date)!)
             let isLowerBoundSatisfied = (fromDate == BEGINING_OF_TIME) || dateFormatter.date(from: timeStrippedDateString)! >= dateFormatter.date(from: fromDate)!
             let isUpperBoundSatisfied = dateFormatter.date(from: timeStrippedDateString)! <= dateFormatter.date(from: toDate)!
@@ -190,6 +211,8 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
         }
         refreshData(newData: filteredData)
     }
+    
+    //when avatar image is tapped user is promt to select a file from the gallery
     @objc func profileImageTapped(_: Any){
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
@@ -216,15 +239,17 @@ class AccountScreen: UIViewController, UIImagePickerControllerDelegate, UINaviga
         focusedField.text = dateFormatter.string(from: focusedFieldDatePicker.date)
         filterData(fromDate: beforeDate.text!, toDate: toDate.text!)
     }
-//   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//       self.view.endEditing(true)
-//   }
+
+    //this function is called user finished selecting an image
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
-        var image = info[.originalImage] as! UIImage
+        var image = info[.originalImage] as! UIImage //retrieve the image
+        //start displaying skeleton loading on avatar image
         profileImage.showAnimatedGradientSkeleton()
+        //we should resize the image or takes very lont time for image upload
         image = resizeImage(image: image, targetSize: CGSize(width: profileImage.frame.width, height: profileImage.frame.height))
         storage.reference(withPath: "user/\(auth.currentUser!.uid)")
+            //saving the profile image by user image id as png file
             .putData(image.pngData()!, metadata: nil) {metaData,error in
                 if error == nil{
                     self.profileImage.hideSkeleton()

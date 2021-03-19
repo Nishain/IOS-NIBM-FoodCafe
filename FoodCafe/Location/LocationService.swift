@@ -19,6 +19,7 @@ class LocationService: CLLocationManager {
         return CLLocationManager.authorizationStatus()
     }
     
+    //check if location permission is given
     func canConinue()->Bool{
         let state = status()
         if(state == .authorizedWhenInUse){

@@ -19,13 +19,18 @@ class RootController: UINavigationController {
         let homeScreen:UITabBarController!
         let canContinue = locationManager.canConinue()
         
+        //we need to hide the first  top navigation baer...
         navigationBar.isHidden = true
+        
+        //check if user has provided location permission then navigate to screen accordingly
+        
+        //with setViewControllers I replace the the stack screen with the screen to display
         if(canContinue){
 
             if(Auth.auth().currentUser == nil){
                 authenticateScreen = storyboard!.instantiateViewController(identifier: "authScreen") as AuthScreen
                 setViewControllers([authenticateScreen], animated: true)
-                //pushViewController(authenticateScreen!,animated: false)
+               
             }else{
                 homeScreen = storyboard!.instantiateViewController(identifier: "homeScreen") as UITabBarController
                 setViewControllers([homeScreen], animated: true)
@@ -34,20 +39,10 @@ class RootController: UINavigationController {
         }else{
             locationRequestScreen = storyboard!.instantiateViewController(identifier: "permissionRequestScreen") as PermissionRequestScreen
             setViewControllers([locationRequestScreen], animated: true)
-            //pushViewController(locationRequestScreen!,animated: false)
         }
         // Do any additional setup after loading the view.
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

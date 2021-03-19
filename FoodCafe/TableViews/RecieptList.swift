@@ -30,6 +30,7 @@ class RecieptList: UITableView, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     func updateData(_ data:[Reciept],_ isOnlySingleItem:Bool = false){
+        //if only single items added no need to refresh entire tableView just append at end of the list
         if isOnlySingleItem {
             self.data.append(data[0])
             insertRows(at: [IndexPath(row: data.count - 1, section: 0)], with: .none)

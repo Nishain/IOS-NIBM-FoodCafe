@@ -50,6 +50,9 @@ class AuthScreen: UIViewController {
             }
         })
     }
+    
+    //a commonly used function to validate if the error code is regarding email related validation
+    //and pop the error message accordingly...
     func alertEmailValidationErrorIfPresent(err:Error){
         var message:String?
         switch AuthErrorCode(rawValue: err._code) {
@@ -65,6 +68,7 @@ class AuthScreen: UIViewController {
         }
     }
     func showtoast(message:String){
+        //showing a toast like in android style with fade of animation after a delay,,,,
         toast.isHidden = false
         toast.alpha = 1.0
         toast.text = message
@@ -74,13 +78,19 @@ class AuthScreen: UIViewController {
             self.toast.isHidden = true
         })
     }
+    
     @IBAction func primaryBtnTaped(_ sender: UIButton) {
+        //based the current context user will sign up or sign in when tapping the primary button
         if currentMode == .login{
             loginUser()
         }else{
             registerUser()
         }
     }
+    /*
+     upon pressing ssecondary button the screen will toggle between login and register screens
+     the only differance and with toggle between the the texfield to be wither shown or hidden
+     */
     @IBAction func secondaryBtnTaped(_ sender: Any) {
         swapFunctioningMode()
     }
@@ -90,8 +100,13 @@ class AuthScreen: UIViewController {
         confirmPassword.isHidden = (currentMode == .login)
         phonenumber.isHidden = (currentMode == .login)
         forgetPassword.isHidden = (currentMode == .register)
+        
+        //changing the text of the buttons accordingly based on if to show login or register
         primaryBtn.setTitle(currentMode == .login ? "Login" : "Register", for: .normal)
         secondaryBtn.setTitle(currentMode == .login ? "Register?" : "Login?", for: .normal)
+        
+        //there is a bug that when the hidden textfield is shown there outline around the texfield get
+        //dispareared so i manually set the borderline again when the texfield get appeared again....
         for view in textFieldContainer.subviews{
             let textfield = view as? UITextField
             if !(textfield?.isHidden ?? true) {
@@ -110,11 +125,14 @@ class AuthScreen: UIViewController {
         }
         auth.signIn(withEmail: email.text!, password: password.text!, completion: ({result,err in
             if(err == nil){
+                //if the no error then user can navigate tp amin screen
                 self.moveToMainScreen()
             }else{
                 self.alertEmailValidationErrorIfPresent(err: err!)
                 var message:String
+                //the error code is test with case if the error is matching any of the following scenario..
                 switch AuthErrorCode(rawValue: err!._code) {
+                
                 case .userNotFound,.wrongPassword:
                     message = "Wrong credendials.Please check your credentials"
                 case .networkError:
@@ -127,6 +145,7 @@ class AuthScreen: UIViewController {
         }))
     }
     func isEmpty(_ fields:[UITextField]) -> Bool {
+        //utility function is check if the field is empty
         for field in fields{
             if field.text == nil || field.text!.count == 0{
                 return true
@@ -147,7 +166,10 @@ class AuthScreen: UIViewController {
         
         auth.createUser(withEmail: email.text!, password: password.text!, completion: ({result,err in
             if(err == nil){
-                //homeScreen
+                /*
+                 if no error then user can proceed to register the account.Upon registering the the database will create
+                 a docuemnt in 'orders' and 'user' collection with intitial data...
+                 */
                 let db = Firestore.firestore()
                 db.document("user/\(result!.user.uid)").setData(["phoneNumber":self.phonenumber.text!])
                 db.document("orders/\(result!.user.uid)").setData(["orderList":[]])

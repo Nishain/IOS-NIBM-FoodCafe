@@ -23,13 +23,14 @@ class FullFoodDetailScreen: UIViewController {
         name.text = foodDetail.title
         price.text = "Rs. \(foodDetail.cost)"
         foodDescription.text = foodDetail.foodDescription
+        
+        //show promotion if greater than 0
         if(foodDetail.promotion == 0){
             promotion.isHidden = true
         }else{
             promotion.text = "\(foodDetail.promotion)% OFF"
         }
         
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func onMakePhoneCall(_ sender: Any) {
@@ -37,9 +38,11 @@ class FullFoodDetailScreen: UIViewController {
             AlertPopup(self).infoPop(title: "Missing phone number", body: "the supplier has not set any phone number yet!")
             return
         }
+        //this function is operatable in the emulator beacause it does not support phone call
         UIApplication.shared.open(URL(string:"tel://\(foodDetail.phoneNumber!)")!, options: [:], completionHandler: nil)
     }
     @IBAction func onOrder(_ sender: RoundBtn) {
+        //callback is called when user add the item to cart
         onOrderedRecieved?()
         navigationController?.popViewController(animated: true)
     }

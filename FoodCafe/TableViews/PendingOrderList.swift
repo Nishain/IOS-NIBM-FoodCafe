@@ -43,6 +43,7 @@ extension PendingOrderList : UITableViewDataSource,UITableViewDelegate{
         refreshChanges()
     }
     func updateSumValues(){
+        /*this function calculates the total cost and quantity of all items in the cart..*/
         var totalQuantity = 0
         var totalCost = 0
         for value in data{
@@ -52,14 +53,15 @@ extension PendingOrderList : UITableViewDataSource,UITableViewDelegate{
         onSumChanged?(totalQuantity,totalCost)
     }
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("pending food inserted")
         let cell = tableView.dequeueReusableCell(withIdentifier: "pendingOrder", for: indexPath) as! PendingOrderCell
         cell.information = data[indexPath.row]
         cell.itemName.text = data[indexPath.row].foodName
         cell.itemPrice.text = "Rs \(String(data[indexPath.row].originalPrice * data[indexPath.row].quantity))"
         cell.qty.text = String(data[indexPath.row].quantity)
+        //change = 1 - increment quantity and -1 otherwise
         cell.onQuantityChange = {change in
             let currentQty = Int(cell.qty.text!)!
+            //if the item is has quantity 1 and user want to lower the quantity to zero, then remove item from the cart
             if(change == -1 && currentQty == 1){
                 self.data.remove(at: indexPath.row)
                 self.reloadData()
@@ -85,66 +87,11 @@ extension PendingOrderList : UITableViewDataSource,UITableViewDelegate{
         updateSumValues()
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+       
         return 1
     }
-        /*override func numberOfSections(in tableView: UITableView) -> Int {
-               // #warning Incomplete implementation, return the number of sections
-               return 0
-           }
-
-           override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-               // #warning Incomplete implementation, return the number of rows
-               return 0
-           }
      
-           */
          
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-
+   

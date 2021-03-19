@@ -27,11 +27,11 @@ class FoodCategoryList: UICollectionView,UICollectionViewDelegate,UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "foodCatergoryCell", for: indexPath) as! FoodCategoryCell
         cell.bodyBtn.setTitle(data[indexPath.row], for:.normal)
-        if(selectedIndex == indexPath.row){
+        if(selectedIndex == indexPath.row){//the cell is selected
             cell.bodyBtn.backgroundColor = .link
             cell.bodyBtn.setTitleColor(.white, for: .normal)
             cell.tag = 2
-        }else if(cell.tag == 2){
+        }else if(cell.tag == 2){//turn the unselected, which was previously selected item back to normal
             cell.bodyBtn.backgroundColor = nil
             cell.bodyBtn.setTitleColor(.black, for: .normal)
             cell.tag = 0
@@ -40,7 +40,6 @@ class FoodCategoryList: UICollectionView,UICollectionViewDelegate,UICollectionVi
             self.selectedIndex = indexPath.row
             self.reloadData()
             self.onCatergorySelected?(indexPath.row,self.data[indexPath.row])
-            //self.reloadItems(at: indexesToUpdate)
         }
         return cell
     }
